@@ -381,9 +381,7 @@
 
         <div class="payment-section">
             <h2>Pay Securely with PayPal</h2>
-            <div id="paypal-button-container" style="min-height: 150px;">
-                <p id="paypal-loading" class="loading">Loading payment options</p>
-            </div>
+            <div id="paypal-button-container" style="min-height: 150px;"></div>
         </div>
 
         <div class="guarantee-box">
@@ -420,9 +418,6 @@
                 setTimeout(initPayPal, 500);
                 return;
             }
-            
-            // Hide loading text immediately
-            document.getElementById('paypal-loading').style.display = 'none';
             
             // PayPal Button Configuration
             paypal.Buttons({
