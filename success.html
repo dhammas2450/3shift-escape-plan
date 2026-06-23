@@ -47,9 +47,26 @@
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .logo img {
             height: 60px;
             width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--light);
+        }
+
+        .logo-text span {
+            color: var(--primary);
         }
 
         .member-badge {
@@ -392,8 +409,9 @@
         <div class="header-content">
             <div class="logo">
                 <img src="logo.jpg" alt="DVH Nexus Logo">
+                <span class="logo-text">DVH <span>NEXUS</span></span>
             </div>
-            <div class="member-badge">MEMBER ACCESS</div>
+
         </div>
     </header>
 
@@ -436,13 +454,13 @@
 
         <div class="course-access">
             <h2>🎬 Access Your Course</h2>
-            <p>All 5 modules are ready and waiting for you.</p>
-            <a href="course-content.html" class="access-button">
-                START WATCHING →
-            </a>
-            <div class="access-note">
-                <strong>Important:</strong> Course videos are hosted securely. You'll need to be logged in to access them. If you have any issues, email me directly.
+            <p>Course materials will be delivered to your email within 24 hours.</p>
+            <div style="background: rgba(255,255,255,0.05); border-radius: 10px; padding: 30px; margin: 20px 0;">
+                <p style="color: #aaa; margin-bottom: 15px;">Delivery Email:</p>
+                <p style="font-size: 1.1rem; color: var(--light);">Check your inbox (and spam folder) for your course access link.</p>
             </div>
+            <a href="course-content.html" class="access-button">ACCESS COURSE →</a>
+            <p style="color: #888; font-size: 0.9rem; margin-top: 20px;">Didn't receive it? Contact: <a href="https://mail.google.com/mail/?view=cm&to=dvhventuresllc@gmail.com&su=3-Shift Escape Plan - Course Access" target="_blank" style="color: var(--accent); text-decoration: none;">dvhventuresllc@gmail.com</a></p>
         </div>
 
         <div class="bonuses-section">
@@ -478,9 +496,7 @@
         <div class="support-section">
             <h2>Need Help?</h2>
             <p>I'm here to support you every step of the way. If you have any questions, technical issues, or just want to say hello, reach out anytime.</p>
-            <a href="mailto:dvhventuresllc@gmail.com" class="support-email">
-                📧 dvhventuresllc@gmail.com
-            </a>
+            <p style="font-size: 1.2rem; color: var(--accent);">📧 dvhventuresllc@gmail.com</p>
         </div>
     </main>
 
