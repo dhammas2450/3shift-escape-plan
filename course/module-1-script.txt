@@ -90,7 +90,7 @@ SECTION 4: THE TOOLS (45 seconds)
 
 "You need four tools. That's it.
 
-First... Kimi. Your AI assistant. You buy credits to use it. Writes content. Answers questions. This is where you start.
+First... ChatGPT. Your AI assistant. Free version works great. Writes content. Answers questions. This is where you start.
 
 Second... OpenClaw. Twenty bucks a month. Your automation engine. Works while you sleep.
 
@@ -98,7 +98,7 @@ Third... Canva. Thirteen bucks a month. Your designer. Drag and drop. No skills 
 
 Fourth... HeyGen. Twenty-four bucks a month. Your video spokesperson. Creates content without you being on camera.
 
-Total cost? Fifty-eight dollars a month.
+Total cost? Thirty-seven dollars a month.
 
 For the price of one dinner out, you get a full team working around the clock."
 
