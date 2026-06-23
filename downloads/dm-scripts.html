@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM Scripts That Convert - 3-Shift Escape Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #FF3B30;
+        }
+        
+        .header h1 {
+            color: #1a1a1a;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .intro {
+            background: #fff3cd;
+            border-left: 4px solid #FF3B30;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .intro h3 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .intro p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .category {
+            margin-bottom: 40px;
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .category-header h2 {
+            font-size: 1.3rem;
+        }
+        
+        .script {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .script-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .script-number {
+            display: inline-block;
+            background: #FF3B30;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .script h4 {
+            color: #1a1a1a;
+            font-size: 1.1rem;
+        }
+        
+        .script-context {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .script-text {
+            background: white;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        .script-tips {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e8f4f8;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        
+        .script-tips strong {
+            color: #FF3B30;
+        }
+        
+        .variable {
+            color: #FF3B30;
+            font-weight: 600;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            color: #999;
+        }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DM Scripts That Convert</h1>
+            <p>Word-for-Word Messages to Turn Conversations into Customers</p>
+        </div>
+
+        <div class="intro">
+            <h3>How to Use These Scripts</h3>
+            <p>1. <strong>Personalize:</strong> Replace the [bracketed text] with specific details about the person you're messaging.</p>
+            <p>2. <strong>Be Genuine:</strong> These are starting points - add your personality and voice.</p>
+            <p>3. <strong>Follow Up:</strong> Most sales happen after the 3rd-5th touch. Don't give up after one message.</p>
+            <p>4. <strong>Track:</strong> Note which scripts work best for your audience and refine over time.</p>
+        </div>
+
+        <!-- CATEGORY 1: COLD OUTREACH -->
+        <div class="category">
+            <div class="category-header">
+                <h2>Cold Outreach Scripts (1-10)</h2>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">1</span>
+                    <h4>The Value-First Approach</h4>
+                </div>
+                <p class="script-context">When: Reaching out to someone in your niche who doesn't know you yet</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>! 👋
+
+I just saw your post about <span class="variable">[specific topic]</span> - really resonated with me, especially the part about <span class="variable">[specific detail]</span>.
+
+I've been working on something similar and discovered a <span class="variable">[quick tip/resource]</span> that's been game-changing. Thought you might find it helpful too.
+
+<span class="variable">[Share tip or link]</span>
+
+No pitch, just wanted to connect! Keep up the great work.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Provides immediate value without asking for anything. Builds goodwill first.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">2</span>
+                    <h4>The Common Ground</h4>
+                </div>
+                <p class="script-context">When: You share a mutual connection or interest</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>!
+
+I noticed we both follow <span class="variable">[mutual connection]</span> and I loved your recent post about <span class="variable">[topic]</span>.
+
+I'm also working in <span class="variable">[niche]</span> and have been trying to <span class="variable">[specific goal]</span>. Would love to connect with others on the same journey.
+
+What got you started in this space?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Mutual connections create instant trust. Asking a question invites response.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">3</span>
+                    <h4>The Compliment + Question</h4>
+                </div>
+                <p class="script-context">When: You genuinely admire their work</p>
+                <div class="script-text"><span class="variable">[Name]</span>, I have to say - your <span class="variable">[specific content/project]</span> is incredible! 
+
+The way you <span class="variable">[specific detail you liked]</span> really stood out. Most people miss that.
+
+Quick question: How did you approach <span class="variable">[specific challenge]</span>? I'm working through something similar and would love your perspective.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Specific compliments show you actually paid attention. People love talking about their expertise.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">4</span>
+                    <h4>The Direct Value Proposition</h4>
+                </div>
+                <p class="script-context">When: You have a clear solution to their visible problem</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>,
+
+I saw your post about struggling with <span class="variable">[specific problem]</span>. I've been there!
+
+I actually help <span class="variable">[target audience]</span> solve exactly that using <span class="variable">[your method]</span>. Just helped someone go from <span class="variable">[before]</span> to <span class="variable">[after]</span> in <span class="variable">[timeframe]</span>.
+
+Not sure if it's a fit for you, but happy to share what worked if you're interested?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Addresses a pain point they're already vocal about. Soft pitch, easy out.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">5</span>
+                    <h4>The Content Response</h4>
+                </div>
+                <p class="script-context">When: Reacting to their story, reel, or post</p>
+                <div class="script-text">Just watched your story about <span class="variable">[topic]</span> - <span class="variable">[genuine reaction]</span>!
+
+I've been thinking about <span class="variable">[related topic]</span> a lot lately. Have you found that <span class="variable">[ask for their insight]</span>?
+
+Would love to hear your thoughts!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Timely and relevant to what they're currently thinking about.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">6</span>
+                    <h4>The Curiosity Gap</h4>
+                </div>
+                <p class="script-context">When: You want them to ask YOU for more info</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>! 
+
+I've been following your journey with <span class="variable">[their project/goal]</span> - really impressive progress.
+
+I think I found something that could help you <span class="variable">[specific benefit]</span> even faster. Not sure if you're open to new strategies right now?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Creates curiosity. They have to respond to find out what you know.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">7</span>
+                    <h4>The Referral Request</h4>
+                </div>
+                <p class="script-context">When: You want them to introduce you to someone</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+Hope you're doing well! I saw you're connected to <span class="variable">[target person's name]</span>.
+
+I'm working on <span class="variable">[brief description]</span> and think it could really help them with <span class="variable">[specific benefit]</span>.
+
+Would you be comfortable making an intro? No worries at all if not!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Low pressure, respects their relationship. Easy to say no.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">8</span>
+                    <h4>The Event Follow-Up</h4>
+                </div>
+                <p class="script-context">When: You met at an event or webinar</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>!
+
+Great meeting you at <span class="variable">[event name]</span> yesterday. Really enjoyed our conversation about <span class="variable">[topic you discussed]</span>.
+
+You mentioned you were working on <span class="variable">[their project]</span> - would love to hear how that's going!
+
+<span class="variable">[Your name]</span>
+<span class="variable">[Your company/role]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Establishes existing connection. References specific conversation.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">9</span>
+                    <h4>The Beta Tester Invite</h4>
+                </div>
+                <p class="script-context">When: Launching something new and want early adopters</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>!
+
+I've been following your work in <span class="variable">[niche]</span> and really respect your insights.
+
+I'm about to launch <span class="variable">[product/service]</span> and looking for 5 people to beta test it at no cost in exchange for honest feedback.
+
+Given your experience with <span class="variable">[relevant experience]</span>, you'd be perfect. Interested?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Exclusive opportunity. Positions them as expert. Free value first.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">10</span>
+                    <h4>The Collaboration Pitch</h4>
+                </div>
+                <p class="script-context">When: You want to partner on content or project</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+I've been thinking about creating content around <span class="variable">[topic]</span> and your perspective on <span class="variable">[their angle]</span> would be amazing.
+
+Would you be open to a quick collaboration? Maybe a <span class="variable">[IG Live/podcast interview/joint post]</span>? I think our audiences would love it.
+
+No pressure if timing doesn't work!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Mutual benefit. Shows you've thought about value for them.
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: WARM LEADS -->
+        <div class="category">
+            <div class="category-header">
+                <h2>Warm Lead Scripts (11-20)</h2>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">11</span>
+                    <h4>The Check-In</h4>
+                </div>
+                <p class="script-context">When: Following up with someone who showed interest before</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>!
+
+Just wanted to check in - last we talked you were dealing with <span class="variable">[their situation]</span>. How's that going?
+
+Still thinking about <span class="variable">[your solution]</span> or has the situation changed?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Shows you remember and care. Non-pushy follow-up.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">12</span>
+                    <h4>The Value Follow-Up</h4>
+                </div>
+                <p class="script-context">When: They didn't respond to your first message</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+Not sure if you saw my last message, but I came across this <span class="variable">[article/tool/resource]</span> and immediately thought of you.
+
+<span class="variable">[Brief explanation of why it's relevant]</span>
+
+Hope you find it helpful!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Doesn't mention the ignored message. Provides new value.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">13</span>
+                    <h4>The Social Proof Nudge</h4>
+                </div>
+                <p class="script-context">When: They expressed interest but haven't committed</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>!
+
+Quick update - just helped another <span class="variable">[their type of business/person]</span> achieve <span class="variable">[specific result]</span> using <span class="variable">[your method]</span>.
+
+Reminded me of our conversation. Still interested in exploring this for yourself?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> FOMO. Shows results without being pushy.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">14</span>
+                    <h4>The Urgency Creator</h4>
+                </div>
+                <p class="script-context">When: You have a legitimate deadline or limited spots</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+Wanted to give you a heads up - I'm closing enrollment for <span class="variable">[program/service]</span> on <span class="variable">[date]</span> to focus on the current group.
+
+I know you were considering it. Want to grab one of the last spots or should I take you off the list?
+
+No pressure either way!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Creates real urgency. Gives them an easy out.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">15</span>
+                    <h4>The Objection Handler</h4>
+                </div>
+                <p class="script-context">When: They said "I need to think about it"</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>,
+
+Totally understand wanting to think it over. Big decisions deserve consideration.
+
+Just to help with that - what specific questions or concerns are you weighing? Happy to clarify anything or provide more info that might help.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Gets them to voice real objections so you can address them.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">16</span>
+                    <h4>The Price Conversation</h4>
+                </div>
+                <p class="script-context">When: They said "It's too expensive"</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+I hear you on the investment. Let me ask - what's the cost of NOT solving <span class="variable">[their problem]</span>?
+
+If we could get you to <span class="variable">[desired outcome]</span> in <span class="variable">[timeframe]</span>, what would that be worth?
+
+Happy to discuss payment options if that helps. What would work better for your budget?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Reframes cost vs value. Opens negotiation.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">17</span>
+                    <h4>The "Not Right Now" Response</h4>
+                </div>
+                <p class="script-context">When: Timing isn't right for them</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>,
+
+No problem at all - timing is everything!
+
+When WOULD be a better time for you? I can check back then so you don't have to keep it on your mental to-do list.
+
+Also happy to add you to my <span class="variable">[newsletter/content]</span> in the meantime so you get value while you wait.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Gets specific timeline. Keeps them in your world.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">18</span>
+                    <h4>The Spouse/Partner Objection</h4>
+                </div>
+                <p class="script-context">When: They need to check with someone else</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+Makes total sense to discuss with <span class="variable">[spouse/partner]</span>.
+
+Want me to send you a quick summary of what we discussed that you can share with them? Might make the conversation easier.
+
+Also happy to hop on a quick call with both of you if they have questions!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Helps them sell it to their partner. Offers to talk to both.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">19</span>
+                    <h4>The Competitor Mention</h4>
+                </div>
+                <p class="script-context">When: They're considering other options</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>,
+
+Smart to compare options! I always recommend doing your due diligence.
+
+A few questions to help you decide:
+- Does the other option include <span class="variable">[your unique feature]</span>?
+- What's their track record with <span class="variable">[specific result]</span>?
+- Do they offer <span class="variable">[your guarantee/support]</span>?
+
+Happy to chat through the differences if helpful!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Positions you as confident. Highlights your unique value.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">20</span>
+                    <h4>The Final Follow-Up</h4>
+                </div>
+                <p class="script-context">When: Last attempt after multiple follow-ups</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+I've reached out a few times and haven't heard back. Totally get it - you're busy and this might not be a priority right now.
+
+Going to assume it's a "not right now" and stop following up so I don't become annoying! 😊
+
+If things change or you want to chat in the future, you know where to find me. No hard feelings either way.
+
+Wishing you all the best!
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Takes pressure off. Often gets a response because they feel bad!
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 3: CLOSING -->
+        <div class="category">
+            <div class="category-header">
+                <h2>Closing Scripts (21-30)</h2>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">21</span>
+                    <h4>The Assumptive Close</h4>
+                </div>
+                <p class="script-context">When: They've shown strong interest</p>
+                <div class="script-text">Awesome <span class="variable">[Name]</span>! 
+
+Sounds like this is exactly what you need. Ready to get started?
+
+I just need <span class="variable">[payment info/contract signature]</span> and we can begin <span class="variable">[next step]</span>.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Assumes the sale. Confident energy is contagious.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">22</span>
+                    <h4>The Choice Close</h4>
+                </div>
+                <p class="script-context">When: They need to make a decision</p>
+                <div class="script-text">Great talking with you <span class="variable">[Name]</span>!
+
+Based on what you shared, would you prefer:
+
+Option A: <span class="variable">[Basic package]</span> - gets you started with <span class="variable">[core benefit]</span>
+
+Option B: <span class="variable">[Premium package]</span> - includes everything in A plus <span class="variable">[extra benefits]</span>
+
+Which feels like a better fit for where you're at?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Either choice is a sale. Removes "yes/no" binary.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">23</span>
+                    <h4>The Trial Close</h4>
+                </div>
+                <p class="script-context">When: Testing if they're ready to buy</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>,
+
+If we could get you to <span class="variable">[desired outcome]</span> by <span class="variable">[date]</span>, would you be ready to move forward?
+
+Just want to make sure we're on the same page before I send over the details.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Gets commitment before presenting offer. Qualifies them.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">24</span>
+                    <h4>The Summary Close</h4>
+                </div>
+                <p class="script-context">When: Recapping value before asking for sale</p>
+                <div class="script-text">Perfect <span class="variable">[Name]</span>! 
+
+So to confirm - you'll be getting:
+✓ <span class="variable">[Benefit 1]</span>
+✓ <span class="variable">[Benefit 2]</span>
+✓ <span class="variable">[Benefit 3]</span>
+✓ <span class="variable">[Bonus]</span>
+
+All for <span class="variable">[price]</span>.
+
+Ready to get started? I can send the payment link now.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Reminds them of full value. Makes saying yes easy.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">25</span>
+                    <h4>The Urgency Close</h4>
+                </div>
+                <p class="script-context">When: There's a real deadline</p>
+                <div class="script-text">Hi <span class="variable">[Name]</span>,
+
+Just a heads up - the <span class="variable">[bonus/discount/spot]</span> expires tonight at midnight.
+
+I know you were interested. Want to grab it before it goes away?
+
+Here's the link: <span class="variable">[payment link]</span>
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Real urgency motivates action. Simple and direct.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">26</span>
+                    <h4>The Payment Plan Offer</h4>
+                </div>
+                <p class="script-context">When: Price is the final objection</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>,
+
+I want to make this work for you. What if we split it into <span class="variable">[number]</span> payments of <span class="variable">[amount]</span> instead?
+
+Same total, just easier on cash flow. Would that help?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Removes financial barrier. Shows flexibility.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">27</span>
+                    <h4>The Guarantee Close</h4>
+                </div>
+                <p class="script-context">When: They're worried about risk</p>
+                <div class="script-text">I totally understand wanting to be sure <span class="variable">[Name]</span>.
+
+Here's what I'll do - try it for <span class="variable">[time period]</span>. If you don't see <span class="variable">[promised result]</span>, I'll refund every penny. No questions, no hassle.
+
+Sound fair?
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Removes risk. Shows confidence in your offer.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">28</span>
+                    <h4>The Scarcity Close</h4>
+                </div>
+                <p class="script-context">When: Limited spots available</p>
+                <div class="script-text">Quick update <span class="variable">[Name]</span> - 
+
+Only <span class="variable">[number]</span> spots left for this cohort. I've had <span class="variable">[number]</span> inquiries today.
+
+Want me to hold one for you? I can give you <span class="variable">[time]</span> to decide, then I'll need to release it to the next person.
+
+<span class="variable">[Your name]</span></div>
+                <div class="script-tips">
+                    <strong>Why it works:</strong> Real scarcity creates FOMO. Limited-time hold adds pressure.
+                </div>
+            </div>
+
+            <div class="script">
+                <div class="script-header">
+                    <span class="script-number">29</span>
+                    <h4>The Takeaway Close</h4>
+                </div>
+                <p class="script-context">When: They're being indecisive</p>
+                <div class="script-text">Hey <span class="variable">[Name]</span>,
+
+I get the sense this might not be the right time for you. And that's totally okay!
+
+I only want people who are 100% ready to commit. If you're not feeling it, no hard feelings at all.
+
+Want me to check back in a few months?
+
+<span class="variable
