@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Content That Converts - The 3-Shift Escape Plan | DVH Nexus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Section */
+        .module-header {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 50%, #FFA500 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.3);
+        }
+        
+        .module-number {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .module-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .module-subtitle {
+            font-size: 22px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .section-title {
+            color: #FF3B30;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-number {
+            background: linear-gradient(135deg, #FF3B30, #FF6B35);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .section-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .section-content p {
+            margin-bottom: 18px;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #fff5f0 0%, #fff9f5 100%);
+            border-left: 5px solid #FF6B35;
+            padding: 25px 30px;
+            border-radius: 0 10px 10px 0;
+            margin: 25px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #FF3B30;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        /* Lists */
+        .simple-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .simple-list li {
+            padding: 15px 0 15px 50px;
+            position: relative;
+            font-size: 18px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .simple-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .simple-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #FF6B35, #FFA500);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        /* Numbered Steps */
+        .step-list {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step;
+            padding: 25px 25px 25px 80px;
+            margin-bottom: 20px;
+            background: #fafafa;
+            border-radius: 12px;
+            position: relative;
+            font-size: 18px;
+        }
+        
+        .step-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #FF3B30, #FF6B35);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        /* Screenshot Placeholder */
+        .screenshot-box {
+            background: #f5f5f5;
+            border: 3px dashed #ccc;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .screenshot-box .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .screenshot-box h4 {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .screenshot-box p {
+            color: #999;
+            font-size: 15px;
+        }
+        
+        /* Visual Metaphor Box */
+        .metaphor-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metaphor-box::before {
+            content: "💡";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 40px;
+            opacity: 0.3;
+        }
+        
+        .metaphor-box h4 {
+            color: #FFA500;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .metaphor-box p {
+            font-size: 17px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        /* Content Type Cards */
+        .content-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .content-card {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .content-card:hover {
+            border-color: #FF6B35;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+        }
+        
+        .content-card .emoji {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .content-card h4 {
+            color: #FF3B30;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .content-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Calendar Grid */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin: 25px 0;
+        }
+        
+        .calendar-day {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            min-height: 100px;
+        }
+        
+        .calendar-day.header {
+            background: linear-gradient(135deg, #FF3B30, #FF6B35);
+            color: white;
+            font-weight: bold;
+            min-height: auto;
+            padding: 12px;
+        }
+        
+        .calendar-day.active {
+            background: #fff5f0;
+            border: 2px solid #FF6B35;
+        }
+        
+        .calendar-day .day-num {
+            font-weight: bold;
+            color: #FF3B30;
+            margin-bottom: 8px;
+        }
+        
+        .calendar-day .day-content {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Action Items */
+        .action-section {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .action-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .action-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .action-list li {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .action-list li::before {
+            content: "→";
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Quote Box */
+        .quote-box {
+            background: #1a1a2e;
+            color: white;
+            padding: 35px 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: """;
+            font-size: 80px;
+            color: #FF6B35;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-box p {
+            font-size: 22px;
+            line-height: 1.6;
+            padding-left: 40px;
+            font-style: italic;
+        }
+        
+        .quote-box .author {
+            text-align: right;
+            margin-top: 20px;
+            color: #FFA500;
+            font-size: 16px;
+            font-style: normal;
+        }
+        
+        /* Progress Bar */
+        .progress-bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            margin: 40px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #FF3B30, #FF6B35, #FFA500);
+            height: 100%;
+            width: 66%;
+            border-radius: 5px;
+        }
+        
+        .progress-label {
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* What This Means Box */
+        .wtmf-box {
+            background: linear-gradient(135deg, #FF6B35 0%, #FFA500 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .wtmf-box h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .wtmf-box p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .module-title {
+                font-size: 28px;
+            }
+            
+            .module-header {
+                padding: 40px 25px;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="progress-label">Module 2 of 3 Complete — 66% Through The Escape Plan</div>
+        
+        <!-- Header -->
+        <header class="module-header">
+            <div class="module-number">Module 2</div>
+            <h1 class="module-title">Content That Converts</h1>
+            <p class="module-subtitle">Your 24/7 Sales Machine That Works While You Sleep</p>
+        </header>
+        
+        <!-- Section 1: Why Content Is Your Sales Team -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-number">1</span>
+                Why Content Is Your Sales Team
+            </h2>
+            <div class="section-content">
+                <p>Imagine having a sales team that <strong>never sleeps</strong>. They work 24 hours a day, 7 days a week. They never call in sick. They never ask for a raise.</p>
+                
+                <p>That's what content does for your business.</p>
+                
+                <div class="metaphor-box">
+                    <h4>🎣 The Fishing Net Analogy</h4>
+                    <p>Think of your business like fishing. Most people are using a single fishing pole. They cast. They wait. They cast again. One fish at a time.</p>
+                    <p style="margin-top: 15px;">Content is like throwing out a <strong>hundred fishing nets</strong> across the entire ocean. While you sleep, those nets are catching fish. When you wake up, you have a boat full of leads.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>Here's What This Means For You</h4>
+                    <p>Every piece of content you create is a <strong>digital employee</strong>. It keeps working for you months (even years) after you create it. A blog post you write today can bring you customers in 2027.</p>
+                </div>
+                
+                <ul class="simple-list">
+                    <li>One video can get viewed 10,000 times</li>
+                    <li>One blog post can rank on Google for years</li>
+                    <li>One social post can be shared hundreds of times</li>
+                    <li>All of it happens while you're doing other things</li>
+                </ul>
+                
+                <div class="screenshot-box">
+                    <div class="icon">📊</div>
+                    <h4>Screenshot: Content Traffic Growth Over 6 Months</h4>
+                    <p>Show a graph of website traffic growing from 0 to 10,000+ monthly visitors through consistent content publishing. Display the hockey stick growth curve.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2: The 3 Types of Content That Sell -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-number">2</span>
+                The 3 Types of Content That Sell
+            </h2>
+            <div class="section-content">
+                <p>Not all content is created equal. Some content entertains. Some content educates. But only <strong>three types</strong> actually make you money.</p>
+                
+                <p>Master these three. Ignore everything else (for now).</p>
+                
+                <div class="content-types">
+                    <div class="content-card">
+                        <div class="emoji">🎓</div>
+                        <h4>Educational Content</h4>
+                        <p>Teaches your audience something valuable. Builds trust. Positions you as the expert. Examples: How-to guides, tutorials, tips, tricks.</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="emoji">📖</div>
+                        <h4>Story-Based Content</h4>
+                        <p>Shares real experiences. Creates connection. Makes you relatable. Examples: Your journey, client wins, lessons learned, behind-the-scenes.</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="emoji">🏆</div>
+                        <h4>Proof Content</h4>
+                        <p>Shows results and builds credibility. Removes doubt. Examples: Case studies, testimonials, before/after, reviews, data.</p>
+                    </div>
+                </div>
+                
+                <div class="wtmf-box">
+                    <h4>🎯 Here's What This Means For You</h4>
+                    <p>Every week, you should create at least one of each type. That's your content formula. Educational builds authority. Stories build connection. Proof builds trust. Together, they build sales.</p>
+                </div>
+                
+                <div class="screenshot-box">
+                    <div class="icon">🎨</div>
+                    <h4>Screenshot: Content Type Examples Side-by-Side</h4>
+                    <p>Show three real examples: An educational carousel post (left), a story-based video still (center), and a testimonial/proof image (right). Include engagement metrics.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: AI Content Creation -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-number">3</span>
+                Using AI to Create 30 Days of Content in 1 Hour
+            </h2>
+            <div class="section-content">
+                <p>Here's where it gets exciting. You don't need to stare at a blank screen anymore. AI can do the heavy lifting.</p>
+                
+                <p>But here's the secret: <strong>You still need to be the brain.</strong> AI is your assistant, not your replacement.</p>
+                
+                <h3 style="color: #FF3B30; margin: 30px 0 20px; font-size: 22px;">The 1-Hour Content System</h3>
+                
+                <ol class="step-list">
+                    <li>
+                        <strong>Brain Dump (10 minutes)</strong><br>
+                        Write down 10 topics your audience cares about. Don't overthink. Just list problems they have and solutions you know.
+                    </li>
+                    <li>
+                        <strong>AI Expansion (15 minutes)</strong><br>
+                        Use ChatGPT or Claude. Give it this prompt: "I'm a [your role] helping [your audience]. Give me 3 social media posts about [topic] including hook, body, and call-to-action."
+                    </li>
+                    <li>
+                        <strong>Batch Create (20 minutes)</strong><br>
+                        Use Canva or similar. Create templates for your content types. Drop in the AI-generated text. Customize with your branding.
+                    </li>
+                    <li>
+                        <strong>Add Your Voice (10 minutes)</strong><br>
+                        Read through everything. Add personal touches. Change words to how YOU talk. This step is crucial — this is what makes it YOURS.
+                    </li>
+                    <li>
+                        <strong>Schedule Everything (5 minutes)</strong><br>
+                        Load it into your scheduling tool. Set it and forget it. Your month is now handled.
+                    </li>
+                </ol>
+                
+                <div class="screenshot-box">
+                    <div class="icon">🤖</div>
+                    <h4>Screenshot: AI Content Generation Process</h4>
+                    <p>Show split screen: Left side shows the AI prompt input, right side shows the generated content output. Include a timer showing "1 hour elapsed."</p>
+                </div>
+                
+                <div class="quote-box">
+                    <p>I used to spend 2 hours on ONE post. Now I create a month's worth in 60 minutes. The AI does 80% of the work. I do the 20% that matters — adding my voice and personality.</p>
+                    <div class="author">— Sarah K., Course Graduate</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 4: The Content Multiplication System -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-number">4</span>
+                The Content Multiplication System
+            </h2>
+            <div class="section-content">
+                <p>This is the secret weapon. This is how you get <strong>10x results</strong> from every piece of content you create.</p>
+                
+                <div class="metaphor-box">
+                    <h4>🌳 The Tree Analogy</h4>
+                    <p>Most people plant a seed, grow one tree, and get a few apples. Smart content creators plant one seed, grow a tree, then take cuttings to grow an entire orchard.</p>
+                    <p style="margin-top: 15px;">One piece of "pillar content" becomes 20+ smaller pieces. Work once. Multiply forever.</p>
+                </div>
+                
+                <h3 style="color: #FF3B30; margin: 30px 0 20px; font-size: 22px;">How It Works</h3>
+                
+                <div class="highlight-box">
+                    <h4>Start With ONE Pillar Piece</h4>
+                    <p>This is your big content. A 10-minute video. A 2000-word blog post. A detailed podcast episode. Something substantial.</p>
+                </div>
+                
+                <p><strong>Then break it down:</strong></p>
+                
+                <ul class="simple-list">
+                    <li>Video → 5 short clips for Reels/TikTok/Shorts</li>
+                    <li>Blog post → 10 social media quote cards</li>
+                    <li>Podcast → 3 email newsletters</li>
+                    <li>Any content → 1 week's worth of tweets/threads</li>
+                    <li>Key points → LinkedIn article or carousel</li>
+                </ul>
+                
+                <div class="screenshot-box">
+                    <div class="icon">🔄</div>
+                    <h4>Screenshot: Content Multiplication Flow Chart</h4>
+                    <p>Show a visual diagram: One video at the top branching into multiple formats (clips, quotes, blog, emails, social posts) with arrows showing the flow.</p>
+                </div>
+                
+                <div class="wtmf-box">
+                    <h4>🎯 Here's What This Means For You</h4>
+                    <p>Instead of creating 30 pieces from scratch, you create ONE great piece and slice it 30 ways. You save 90% of your time. Your message stays consistent. Your audience sees you everywhere.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 5: Scheduling and Automation -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-number">5</span>
+                Scheduling and Automation
+            </h2>
+            <div class="section-content">
+                <p>Here's a truth that might sting: <strong>If you're posting manually, you're doing it wrong.</strong></p>
+                
+                <p>Manual posting is inconsistent. Life gets busy. You forget. Days turn into weeks. Your audience forgets you exist.</p>
+                
+                <h3 style="color: #FF3B30; margin: 30px 0 20px; font-size: 22px;">The "Set It and Forget It" System</h3>
+                
+                <ol class="step-list">
+                    <li>
+                        <strong>Pick Your Tool</strong><br>
+                        Buffer, Hootsuite, Later, or Meta Business Suite. They all do the same job. Pick one. Learn it well.
+                    </li>
+                    <li>
+                        <strong>Create Content Buckets</strong><br>
+                        Educational posts on Mondays. Stories on Wednesdays. Proof content on Fridays. Mix in promotional posts 20% of the time.
+                    </li>
+                    <li>
+                        <strong>Batch Upload</strong><br>
+                        Load your month's content in one sitting. Schedule for optimal times (typically 9am, 12pm, 6pm in your audience's timezone).
+                    </li>
+                    <li>
+                        <strong>Let It Run</strong><br>
+                        Your content goes live automatically. You show up consistently without thinking about it every day.
+                    </li>
+                </ol>
+                
+                <div class="screenshot-box">
+                    <div class="icon">📅</div>
+                    <h4>Screenshot: Content Calendar Dashboard</h4>
+                    <p>Show a scheduling tool interface with a month's worth of posts already scheduled. Different colors for different content types. All slots filled.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>Pro Tip: The Engagement Window</h4>
+                    <p>Scheduling posts the content. But YOU still need to engage. Spend 15 minutes daily responding to comments and DMs. That's where the real relationships (and sales) happen.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 6: Your First Week Content Calendar -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-number">6</span>
+                Your First Week Content Calendar
+            </h2>
+            <div class="section-content">
+                <p>Don't overcomplicate this. You don't need a perfect plan. You need <strong>a plan you can actually follow.</strong></p>
+                
+                <p>Here's your exact first week. Copy this. Use it. Adjust as you go.</p>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-day header">Mon</div>
+                    <div class="calendar-day header">Tue</div>
+                    <div class="calendar-day header">Wed</div>
+                    <div class="calendar-day header">Thu</div>
+                    <div class="calendar-day header">Fri</div>
+                    <div class="calendar-day header">Sat</div>
+                    <div class="calendar-day header">Sun</div>
+                    
+                    <div class="calendar-day active">
+                        <div class="day-num">Day 1</div>
+                        <div class="day-content">Educational Post<br>Teach a tip<br>🎓</div>
+                    </div>
+                    <div class="calendar-day active">
+                        <div class="day-num">Day 2</div>
+                        <div class="day-content">Story Post<br>Share experience<br>📖</div>
+                    </div>
+                    <div class="calendar-day active">
+                        <div class="day-num">Day 3</div>
+                        <div class="day-content">Engagement<br>Reply to all<br>💬</div>
+                    </div>
+                    <div class="calendar-day active">
+                        <div class="day-num">Day 4</div>
+                        <div class="day-content">Proof Post<br>Case study<br>🏆</div>
+                    </div>
+                    <div class="calendar-day active">
+                        <div class="day-num">Day 5</div>
+                        <div class="day-content">Promotional<br>Soft offer<br>🎯</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-num">Day 6</div>
+                        <div class="day-content">Rest or<br>engagement<br>☕</div>
+                    </div>
+                    <div class="calendar-day">
+                        <div class="day-num">Day 7</div>
+                        <div class="day-content">Plan next<br>week<br>📝</div>
+                    </div>
+                </div>
+                
+                <h3 style="color: #FF3B30; margin: 30px 0 20px; font-size: 22px;">The Pattern to Repeat</h3>
+                
+                <ul class="simple-list">
+                    <li><strong>Monday:</strong> Educational — Teach something valuable</li>
+                    <li><strong>Tuesday:</strong> Story — Share a personal experience or lesson</li>
+                    <li><strong>Wednesday:</strong> Engagement — Reply to comments, start conversations</li>
+                    <li><strong>Thursday:</strong> Proof — Show results, testimonials, case studies</li>
+                    <li><strong>Friday:</strong> Soft Promotion — Mention your offer naturally</li>
+                    <li><strong>Weekend:</strong> Rest or light engagement</li>
+                </ul>
+                
+                <div class="screenshot-box">
+                    <div class="icon">✅</div>
+                    <h4>Screenshot: Completed Content Calendar Template</h4>
+                    <p>Show a filled-out content calendar with actual post ideas, captions, and status markers (draft/scheduled/published). Include variety of content types.</p>
+                </div>
+                
+                <div class="wtmf-box">
+                    <h4>🎯 Here's What This Means For You</h4>
+                    <p>Follow this pattern for 4 weeks. That's it. By week 4, you'll have momentum. You'll have an audience. You'll have people reaching out to work with you. Consistency beats perfection every single time.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Action Items -->
+        <section class="action-section">
+            <h2>🎯 Your Action Items — Do These Now</h2>
+            <ul class="action-list">
+                <li>Choose your content types: 1 educational, 1 story, 1 proof</li>
+                <li>Set up your AI tool (ChatGPT, Claude, or similar)</li>
+                <li>Create or choose a content scheduling tool</li>
+                <li>Plan your first week using the calendar above</li>
+                <li>Schedule your first 7 posts today</li>
+                <li>Set a recurring calendar block for "Content Creation Hour"</li>
+            </ul>
+        </section>
+        
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px; color: #999;">
+            <p style="font-size: 16px;">Module 2 Complete — Next: Module 3 "Traffic That Converts"</p>
+            <p style="font-size: 14px; margin-top: 10px;">© DVH Nexus — The 3-Shift Escape Plan</p>
+        </div>
+    </div>
+</body>
+</html>

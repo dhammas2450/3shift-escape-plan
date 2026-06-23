@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: The First Dollar - The 3-Shift Escape Plan | DVH Nexus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF3B30;
+            --primary-dark: #D63029;
+            --secondary: #FF6B35;
+            --accent: #FFA500;
+            --dark: #1A1A1A;
+            --darker: #0f0f0f;
+            --light: #FFFFFF;
+            --success: #4CAF50;
+            --gold: #FFD700;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--dark);
+            padding: 15px 20px;
+            border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .header-nav a:hover {
+            color: var(--light);
+        }
+
+        .header-nav a.active {
+            color: var(--primary);
+        }
+
+        /* Layout */
+        .course-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 82px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--dark);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 82px);
+            position: sticky;
+            top: 82px;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-section h3 {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            height: 100%;
+            width: 60%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Module List */
+        .module-list {
+            list-style: none;
+        }
+
+        .module-item {
+            margin-bottom: 10px;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .module-header:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .module-header.active {
+            background: rgba(255, 59, 48, 0.1);
+            border-left-color: var(--primary);
+        }
+
+        .module-number {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 59, 48, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .module-header.active .module-number {
+            background: var(--primary);
+        }
+
+        .module-title {
+            flex: 1;
+        }
+
+        .module-title h4 {
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .module-title span {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .module-status {
+            font-size: 1.2rem;
+        }
+
+        .lesson-list {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .lesson-list.expanded {
+            display: block;
+        }
+
+        .lesson-item {
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .lesson-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--light);
+        }
+
+        .lesson-item.active {
+            background: rgba(255, 59, 48, 0.1);
+            color: var(--primary);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .video-container {
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .play-button-large {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .play-button-large:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(255, 59, 48, 0.6);
+        }
+
+        .play-button-large::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 30px solid white;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            margin-left: 8px;
+        }
+
+        .video-placeholder p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Module Content Styling */
+        .module-content {
+            max-width: 900px;
+        }
+
+        .module-header-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 59, 48, 0.3);
+        }
+
+        .module-content h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .module-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin: 40px 0 20px 0;
+            letter-spacing: 1px;
+        }
+
+        .module-content h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin: 30px 0 15px 0;
+        }
+
+        .module-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .module-intro {
+            font-size: 1.2rem;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 107, 53, 0.05);
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Chad Nicely Style Elements */
+        .chad-box {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .chad-box h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chad-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chad-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .chad-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .what-this-means {
+            background: rgba(255, 165, 0, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .what-this-means h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .what-this-means p {
+            color: #ccc;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Step by Step */
+        .step-container {
+            margin: 30px 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--secondary);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+
+        .step-content p {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        /* Screenshot Placeholders */
+        .screenshot-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .screenshot-box img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 8px;
+            padding: 60px 40px;
+            color: #666;
+        }
+
+        .screenshot-placeholder .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .screenshot-desc {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .formula-box h3 {
+            color: var(--gold);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .formula {
+            font-size: 1.5rem;
+            color: var(--light);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .formula-breakdown {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .formula-breakdown li {
+            padding: 8px 0;
+            color: #ccc;
+        }
+
+        /* Action Items */
+        .action-section {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.15) 0%, rgba(255, 107, 53, 0.15) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .action-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .action-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            flex-shrink: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-checkbox:hover {
+            background: rgba(255, 59, 48, 0.2);
+        }
+
+        .action-text {
+            flex: 1;
+        }
+
+        .action-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .action-text p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Celebration Section */
+        .celebration-box {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(255, 215, 0, 0.15) 100%);
+            border: 2px solid var(--success);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .celebration-box .emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .celebration-box h3 {
+            color: var(--success);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        /* Resources */
+        .resources-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .resources-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-info h4 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .resource-info p {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .resource-download {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation Buttons */
+        .lesson-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 59, 48, 0.1);
+            border-color: var(--primary);
+        }
+
+        .nav-button.next {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-color: transparent;
+        }
+
+        .nav-button.next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 59, 48, 0.4);
+        }
+
+        /* Visual Metaphors */
+        .metaphor-box {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(255, 165, 0, 0.05);
+            border-radius: 15px;
+            margin: 25px 0;
+            align-items: center;
+        }
+
+        .metaphor-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .metaphor-content h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .metaphor-content p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .course-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .module-content h1 {
+                font-size: 2rem;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="../logo.jpg" alt="DVH Nexus Logo">
+            </div>
+            <nav class="header-nav">
+                <a href="../success.html">Dashboard</a>
+                <a href="../course-content.html">Course</a>
+                <a href="../downloads.html">Downloads</a>
+                <a href="mailto:dvhventuresllc@gmail.com">Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="course-layout">
+        <aside class="sidebar">
+            <div class="progress-section">
+                <h3>Your Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+                <p class="progress-text">60% Complete • Module 4 of 5</p>
+            </div>
+
+            <ul class="module-list">
+                <li class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <div class="module-number">1</div>
+                        <div class="module-title">
+                            <h4>The Foundation</h4>
+                            <span>3 lessons • 45 min</span>
+                        </div>
+                        <span class="module-status">▶</span>
+                    </div>
+                </li>
+
+                <li class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <div class="module-number">2</div>
+                        <div class="module-title">
+                            <h4>Your First $100</h4>
+                            <span>4 lessons • 60 min</span>
+                        </div>
+                        <span class="module-status">▶</span>
+                    </div>
+                </li>
+
+                <li class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <div class="module-number">3</div>
+                        <div class="module-title">
+                            <h4>Scaling to $1,000</h4>
+                            <span>4 lessons • 55 min</span>
+                        </div>
+                        <span class="module-status">▶</span>
+                    </div>
+                </li>
+
+                <li class="module-item">
+                    <div class="module-header active" onclick="toggleModule(this)">
+                        <div class="module-number">4</div>
+                        <div class="module-title">
+                            <h4>The First Dollar</h4>
+                            <span>5 lessons • 65 min</span>
+                        </div>
+                        <span class="module-status">▼</span>
+                    </div>
+                    <ul class="lesson-list expanded">
+                        <li class="lesson-item active">
+                            <span>▶</span> Why That First Dollar Changes Everything
+                        </li>
+                        <li class="lesson-item">
+                            <span>▶</span> 3 Ways to Monetize (Pick One)
+                        </li>
+                        <li class="lesson-item">
+                            <span>▶</span> The $97 Offer Formula
+                        </li>
+                        <li class="lesson-item">
+                            <span>▶</span> Build Your Product in 48 Hours
+                        </li>
+                        <li class="lesson-item">
+                            <span>▶</span> Taking Payments & Your First Sale
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <div class="module-number">5</div>
+                        <div class="module-title">
+                            <h4>Replace Your Paycheck</h4>
+                            <span>4 lessons • 65 min</span>
+                        </div>
+                        <span class="module-status">▶</span>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="play-button-large"></div>
+                    <p>Module 4 Video • 18 minutes</p>
+                </div>
+            </div>
+
+            <div class="module-content">
+                <div class="module-header-section">
+                    <h1>MODULE 4: THE FIRST DOLLAR</h1>
+                    <div class="module-meta">
+                        <span>⏱ 18 minutes</span>
+                        <span>📄 5 lessons</span>
+                        <span>🎯 Action-packed</span>
+                    </div>
+                    <p class="module-intro">
+                        This is the module where everything changes. We're not just learning anymore — we're doing. By the end of this module, you'll have a product ready to sell and a simple way to take payments. Your first customer is closer than you think.
+                    </p>
+                </div>
+
+                <!-- SECTION 1: WHY THE FIRST DOLLAR MATTERS -->
+                <h2>1. WHY THAT FIRST DOLLAR CHANGES EVERYTHING</h2>
+
+                <div class="metaphor-box">
+                    <div class="metaphor-icon">🔑</div>
+                    <div class="metaphor-content">
+                        <h4>The Key That Unlocks Everything</h4>
+                        <p>Think of your first dollar like the first time you rode a bike. Before that moment, you weren't sure if you could. After? You knew. That first dollar is proof. Proof that someone values what you created. Proof that this works. Proof that you're not just hoping — you're doing.</p>
+                    </div>
+                </div>
+
+                <div class="chad-box">
+                    <h4>🎯 Here's What Happens After Dollar #1:</h4>
+                    <ul>
+                        <li>You stop asking "Can I do this?" and start asking "How big can I grow this?"</li>
+                        <li>Your family stops thinking it's a "phase" and starts seeing it as a business</li>
+                        <li>You gain confidence that no YouTube video can give you</li>
+                        <li>You join the 1% of people who actually try instead of just dream</li>
+                    </ul>
+                </div>
+
+                <div class="what-this-means">
+                    <h4>💡 Here's What This Means For You</h4>
+                    <p>We're not aiming for $10,000 today. We're not aiming for $1,000. We're aiming for ONE dollar from ONE person. That's it. Because once you crack that code, you can crack it again. And again. And again.</p>
+                </div>
+
+                <!-- SECTION 2: 3 WAYS TO MONETIZE -->
+                <h2>2. THREE WAYS TO MONETIZE (PICK ONE)</h2>
+
+                <p style="font-size: 1.1rem; color: #aaa; margin-bottom: 25px;">I'm going to give you three paths. You only need ONE. Don't try to do all three. Pick the one that fits you best right now.</p>
+
+                <div class="step-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Affiliate Marketing (Easiest Start)</h4>
+                            <p>You promote someone else's product. They handle everything — the product, the delivery, the support. You get a commission (usually 30-50%) when someone buys through your link.</p>
+                            <div class="chad-box" style="margin: 15px 0;">
+                                <ul>
+                                    <li>No product to create</li>
+                                    <li>No customer service</li>
+                                    <li>Get paid while you learn</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Services (Fastest Cash)</h4>
+                            <p>You do something for someone. Write their emails. Build their website. Manage their social media. They pay you for your time and skills.</p>
+                            <div class="chad-box" style="margin: 15px 0;">
+                                <ul>
+                                    <li>Money comes in fast</li>
+                                    <li>You learn what people actually want</li>
+                                    <li>Build relationships for future sales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Digital Products (Best Long-Term)</h4>
+                            <p>You create something once. An ebook. A template. A checklist. A short course. You sell it over and over without doing more work.</p>
+                            <div class="chad-box" style="margin: 15px 0;">
+                                <ul>
+                                    <li>Create once, sell forever</li>
+                                    <li>100% profit margin</li>
+                                    <li>Scales without your time</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screenshot-box">
+                    <div class="screenshot-placeholder">
+                        <div class="icon">📊</div>
+                        <p>DECISION FLOWCHART PLACEHOLDER</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Visual flowchart helping students pick their monetization path based on their current situation</p>
+                    </div>
+                    <p class="screenshot-desc">Use this flowchart to pick your path in under 2 minutes</p>
+                </div>
+
+                <div class="what-this-means">
+                    <h4>💡 Here's What This Means For You</h4>
+                    <p>There's no "best" option. There's only the best option FOR YOU right now. Working long hours at Walmart? Start with affiliate. Have some free time on weekends? Offer a service. Want to build something that pays you while you sleep? Create a digital product.</p>
+                </div>
+
+                <!-- SECTION 3: THE $97 OFFER FORMULA -->
+                <h2>3. THE $97 OFFER FORMULA</h2>
+
+                <p style="font-size: 1.1rem; color: #aaa; margin-bottom: 25px;">$97 is the sweet spot. It's not so cheap that people question quality. It's not so expensive that they need to think about it. It's the "no-brainer" price point.</p>
+
+                <div class="formula-box">
+                    <h3>💰 THE $97 OFFER FORMULA</h3>
+                    <div class="formula">
+                        SPECIFIC PROBLEM + QUICK SOLUTION + BONUSES = $97 SALE
+                    </div>
+                    <ul class="formula-breakdown">
+                        <li><strong>Specific Problem:</strong> Don't solve "marketing." Solve "how to write your first email."</li>
+                        <li><strong>Quick Solution:</strong> They can use it TODAY and see results.</li>
+                        <li><strong>Bonuses:</strong> Stack 2-3 extras that make the deal feel like a steal.</li>
+                    </ul>
+                </div>
+
+                <div class="metaphor-box">
+                    <div class="metaphor-icon">🍔</div>
+                    <div class="metaphor-content">
+                        <h4>Think of It Like a Value Meal</h4>
+                        <p>You don't sell a burger. You sell "The Meal." The burger, the fries, the drink, and the toy. Each piece on its own might be $15. Together? $97 feels like a deal. That's your offer stack.</p>
+                    </div>
+                </div>
+
+                <h3>Example $97 Offers You Can Create:</h3>
+
+                <div class="step-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>The "First 100 Subscribers" Bundle</h4>
+                            <p>For people starting an email list. Main product: 30-day email sequence template. Bonus 1: List building checklist. Bonus 2: Subject line swipe file.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>The "Content Calendar in a Box"</h4>
+                            <p>For busy business owners. Main product: 365 days of content ideas. Bonus 1: Caption templates. Bonus 2: Best times to post guide.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>The "Side Hustle Starter Kit"</h4>
+                            <p>For people like you. Main product: Step-by-step launch guide. Bonus 1: Profit calculator spreadsheet. Bonus 2: 30-day action planner.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screenshot-box">
+                    <div class="screenshot-placeholder">
+                        <div class="icon">📝</div>
+                        <p>OFFER WORKSHEET PLACEHOLDER</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Fill-in-the-blanks worksheet for creating your $97 offer</p>
+                    </div>
+                    <p class="screenshot-desc">Download the worksheet and fill it out as you watch this section</p>
+                </div>
+
+                <div class="what-this-means">
+                    <h4>💡 Here's What This Means For You</h4>
+                    <p>You don't need to be an expert. You just need to be one step ahead of the person behind you. What did you learn last week that someone else is struggling with today? That's your $97 offer.</p>
+                </div>
+
+                <!-- SECTION 4: CREATE IN 48 HOURS -->
+                <h2>4. CREATE YOUR FIRST PRODUCT IN 48 HOURS</h2>
+
+                <p style="font-size: 1.1rem; color: #aaa; margin-bottom: 25px;">Perfection is the enemy of profit. Your first product doesn't need to be fancy. It needs to be DONE. Here's how to do it in 48 hours.</p>
+
+                <div class="chad-box">
+                    <h4>⚡ The 48-Hour Product Sprint</h4>
+                    <ul>
+                        <li>Hour 1-2: Outline your product (what problem, what solution, what format)</li>
+                        <li>Hour 3-8: Create the main content (write it, record it, design it)</li>
+                        <li>Hour 9-12: Create your bonuses (keep them simple but valuable)</li>
+                        <li>Hour 13-16: Package it (PDF, video, templates — make it look professional)</li>
+                        <li>Hour 17-24: Build your sales page (use the template below)</li>
+                        <li>Hour 25-32: Set up payments (PayPal takes 15 minutes)</li>
+                        <li>Hour 33-40: Test everything (buy it yourself, make sure it works)</li>
+                        <li>Hour 41-48: LAUNCH (tell everyone, post everywhere, make your first sale)</li>
+                    </ul>
+                </div>
+
+                <div class="screenshot-box">
+                    <div class="screenshot-placeholder">
+                        <div class="icon">⏰</div>
+                        <p>48-HOUR TIMELINE VISUAL PLACEHOLDER</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Day-by-day, hour-by-hour breakdown with checkboxes</p>
+                    </div>
+                    <p class="screenshot-desc">Print this timeline and check off each hour as you complete it</p>
+                </div>
+
+                <h3>Quick Product Ideas You Can Make Fast:</h3>
+
+                <div class="step-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>The "Cheat Sheet" (2-4 hours)</h4>
+                            <p>One page. All the info someone needs. Condense a complex topic into a simple reference guide. People pay for clarity.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>The "Template Pack" (4-6 hours)</h4>
+                            <p>Give them the exact documents you use. Email templates. Social media posts. Spreadsheets. They fill in the blanks.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>The "Mini Course" (8-12 hours)</h4>
+                            <p>3-5 short videos (5-10 minutes each) teaching one specific thing. Record on your phone. Upload to a simple platform.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metaphor-box">
+                    <div class="metaphor-icon">🚗</div>
+                    <div class="metaphor-content">
+                        <h4>Done Beats Perfect Every Time</h4>
+                        <p>A beat-up car that runs is better than a perfect car that doesn't exist. Get your product out there. You can always improve it later with feedback from real customers.</p>
+                    </div>
+                </div>
+
+                <!-- SECTION 5: SIMPLE SALES PAGE -->
+                <h2>5. THE SIMPLE SALES PAGE TEMPLATE</h2>
+
+                <p style="font-size: 1.1rem; color: #aaa; margin-bottom: 25px;">You don't need fancy software. You don't need to know code. Here's the exact structure that converts.</p>
+
+                <div class="chad-box">
+                    <h4>📄 The 7-Section Sales Page</h4>
+                    <ul>
+                        <li><strong>Headline:</strong> The #1 mistake [target audience] make when trying to [desired result]</li>
+                        <li><strong>Story:</strong> I was where you are. Here's what I discovered.</li>
+                        <li><strong>Problem:</strong> You're struggling with [pain point]. It's not your fault.</li>
+                        <li><strong>Solution:</strong> Introduce your product as the bridge from problem to solution</li>
+                        <li><strong>What's Inside:</strong> List everything they get (main product + bonuses)</li>
+                        <li><strong>Price + Guarantee:</strong> "$97 — 30-day money-back guarantee"</li>
+                        <li><strong>Call to Action:</strong> Big button that says "Get Instant Access"</li>
+                    </ul>
+                </div>
+
+                <div class="screenshot-box">
+                    <div class="screenshot-placeholder">
+                        <div class="icon">📄</div>
+                        <p>SALES PAGE WIREFRAME PLACEHOLDER</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Visual mockup showing the 7 sections with annotations</p>
+                    </div>
+                    <p class="screenshot-desc">Use this wireframe as your guide — just fill in your content</p>
+                </div>
+
+                <div class="what-this-means">
+                    <h4>💡 Here's What This Means For You</h4>
+                    <p>Your sales page doesn't need to be pretty. It needs to be CLEAR. One person scrolling on their phone during break should understand what you sell and why they need it in under 60 seconds.</p>
+                </div>
+
+                <!-- SECTION 6: TAKING PAYMENTS -->
+                <h2>6. TAKING PAYMENTS (PayPal SETUP)</h2>
+
+                <p style="font-size: 1.1rem; color: #aaa; margin-bottom: 25px;">This is where the magic happens. You need a way to collect money. PayPal is the fastest, easiest way to start.</p>
+
+                <div class="step-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Create Your PayPal Business Account</h4>
+                            <p>Go to paypal.com. Sign up for a Business account (it's free). Use your real name or business name — whatever feels right.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Create a "Buy Now" Button</h4>
+                            <p>In your PayPal dashboard: Tools → All Tools → PayPal Buttons → Create New Button. Set price to $97. Copy the code.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Add Button to Your Sales Page</h4>
+                            <p>Paste the PayPal button code on your sales page. When someone clicks it, they go to PayPal, pay $97, and the money hits your account instantly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screenshot-box">
+                    <div class="screenshot-placeholder">
+                        <div class="icon">💳</div>
+                        <p>PAYPAL BUTTON SETUP SCREENSHOT PLACEHOLDER</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Step-by-step screenshots of creating a PayPal button</p>
+                    </div>
+                    <p class="screenshot-desc">Follow these screenshots exactly — click by click</p>
+                </div>
+
+                <div class="screenshot-box">
+                    <div class="screenshot-placeholder">
+                        <div class="icon">📧</div>
+                        <p>AUTOMATED DELIVERY SETUP PLACEHOLDER</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">How to automatically send your product after payment</p>
+                    </div>
+                    <p class="screenshot-desc">Set this up once — then it runs on autopilot</p>
+                </div>
+
+                <div class="what-this-means">
+                    <h4>💡 Here's What This Means For You</h4>
+                    <p>In 15 minutes, you can have a working payment system. No merchant accounts. No complicated setups. No monthly fees. Just a button that puts $97 in your pocket every time someone clicks it.</p>
+                </div>
+
+                <!-- SECTION 7: FIRST CUSTOMER CELEBRATION -->
+                <h2>7. YOUR FIRST CUSTOMER CELEBRATION</h2>
+
+                <div class="celebration-box">
+                    <div class="emoji">🎉</div>
+                    <h3>THIS IS THE MOMENT</h3>
+                    <p style="font-size: 1.2rem; color: #ccc; line-height: 1.8;">When that first "You received a payment" email hits your inbox, everything changes. You are no longer someone who "wants to start a business." You ARE a business owner.</p>
+                </div>
+
+                <div class="chad-box">
+                    <h4>🎊 How to Celebrate (And Why It Matters)</h4>
+                    <ul>
+                        <li>Screenshot that payment notification. Save it forever.</li>
+                        <li>Tell someone who supports you (not the doubters).</li>
+                        <li>Do a little victory dance. Seriously. Physical celebration locks in the win.</li>
+                        <li>Thank your customer personally. Send them an email. Build the relationship.</li>
+                        <li>Document this moment. You'll want to remember where you started.</li>
+                    </ul>
+                </div>
+
+                <div class="metaphor-box">
+                    <div class="metaphor-icon">🌱</div>
+                    <div class="metaphor-content">
+                        <h4>The First Dollar Is a Seed</h4>
+                        <p>That first sale plants a seed. Water it with more action. Give it sunlight with more marketing. Watch it grow into something that changes your life. Every empire started with one small sale.</p>
+                    </div>
+                </div>
+
+                <div class="what-this-means">
+                    <h4>💡 Here's What This Means For You</h4>
+                    <p>Your first customer is proof of concept. If one person will pay, others will too. Your job now is simple: do more of what worked. More content. More offers. More value. The first dollar is the hardest. Every one after gets easier.</p>
+                </div>
+
+                <!-- ACTION ITEMS -->
+                <div class="action-section">
+                    <h2>🎯 YOUR ACTION ITEMS (DO THESE NOW)</h2>
+                    
+                    <div class="action-item">
+                        <div class="action-checkbox"></div>
+                        <div class="action-text">
+                            <h4>Pick Your Path</h4>
+                            <p>Decide: Affiliate, Service, or Product. Write it down. Commit to it.</p>
+                        </div>
+                    </div>
+
+                    <div class="action-item">
+                        <div class="action-checkbox"></div>
+                        <div class="action-text">
+                            <h4>Define Your $97 Offer</h4>
+                            <p>Use the worksheet. What's the problem? What's the solution? What are your bonuses?</p>
+                        </div>
+                    </div>
+
+                    <div class="action-item">
+                        <div class="action-checkbox"></div>
+                        <div class="action-text">
+                            <h4>Set Your 48-Hour Deadline</h4>
+                            <p>Pick a date. Mark it on your calendar. Tell someone. Make it real.</p>
+                        </div>
+                    </div>
+
+                    <div class="action-item">
+                        <div class="action-checkbox"></div>
+                        <div class="action-text">
+                            <h4>Create Your PayPal Account</h4>
+                            <p>Do this TODAY. Not tomorrow. Today. It's free and takes 10 minutes.</p>
+                        </div>
+                    </div>
+
+                    <div class="action-item">
+                        <div class="action-checkbox"></div>
+                        <div class="action-text">
+                            <h4>Make Your First Sale</h4>
+                            <p>Post about your offer. Send a message to 5 people. Do whatever it takes to get that first "payment received" notification.</p>
+                        </div>
+                    </div>
+
+                    <div class="action-item">
+                        <div class="action-checkbox"></div>
+                        <div class="action-text">
+                            <h4>Celebrate and Document</h4>
+                            <p>When that first sale comes in, celebrate like you just won the lottery. Because in many ways, you did.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESOURCES -->
+                <div class="resources-section">
+                    <h3>📎 MODULE 4 RESOURCES</h3>
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <span class="resource-icon">📄</span>
+                            <div class="resource-info">
+                                <h4>The $97 Offer Worksheet</h4>
+                                <p>PDF • Fill-in-the-blanks template</p>
+                            </div>
+                            <a href="../downloads/module4-offer-worksheet.pdf" class="resource-download" download>Download</a>
+                        </li>
+                        <li class="resource-item">
+                            <span class="resource-icon">📄</span>
+                            <div class="resource-info">
+                                <h4>48-Hour Product Sprint Checklist</h4>
+                                <p>PDF • Hour-by-hour timeline</p>
+                            </div>
+                            <a href="../downloads/module4-48hour-checklist.pdf" class="resource-download" download>Download</a>
+                        </li>
+                        <li class="resource-item">
+                            <span class="resource-icon">📄</span>
+                            <div class="resource-info">
+                                <h4>Simple Sales Page Template</h4>
+                                <p>Google Docs • Copy and customize</p>
+                            </div>
+                            <a href="#" class="resource-download">Open Template</a>
+                        </li>
+                        <li class="resource-item">
+                            <span class="resource-icon">📄</span>
+                            <div class="resource-info">
+                                <h4>PayPal Setup Guide</h4>
+                                <p>PDF • Screenshots + instructions</p>
+                            </div>
+                            <a href="../downloads/module4-paypal-guide.pdf" class="resource-download" download>Download</a>
+                        </li>
+                        <li class="resource-item">
+                            <span class="resource-icon">🎵</span>
+                            <div class="resource-info">
+                                <h4>Module 4 Audio Version</h4>
+                                <p>MP3 • 18 minutes</p>
+                            </div>
+                            <a href="../downloads/module4-audio.mp3" class="resource-download" download>Download</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Navigation -->
+                <div class="lesson-nav">
+                    <a href="module-3.html" class="nav-button">
+                        ← Previous Module
+                    </a>
+                    <a href="module-5.html" class="nav-button next">
+                        Next Module →
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleModule(header) {
+            const lessonList = header.nextElementSibling;
+            const status = header.querySelector('.module-status');
+            
+            if (lessonList) {
+                lessonList.classList.toggle('expanded');
+                status.textContent = lessonList.classList.contains('expanded') ? '▼' : '▶';
+            }
+        }
+
+        // Checkbox interaction
+        document.querySelectorAll('.action-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('click', function() {
+                this.textContent = this.textContent === '✓' ? '' : '✓';
+                this.style.background = this.textContent === '✓' ? 'var(--success)' : 'transparent';
+            });
+        });
+    </script>
+</body>
+</html>

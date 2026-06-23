@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: The Foundation - Your AI Team Setup | DVH Nexus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 50%, #FFA500 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.3);
+        }
+        
+        .logo {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 15px;
+        }
+        
+        .module-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+        }
+        
+        /* Content Cards */
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+        }
+        
+        h2 {
+            color: #FF3B30;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        h2 .icon {
+            font-size: 1.3em;
+        }
+        
+        h3 {
+            color: #FF6B35;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFF9F0 100%);
+            border-left: 5px solid #FF3B30;
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            margin: 25px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #FF3B30;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 15px 0 15px 25px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        
+        /* Numbered Steps */
+        .step {
+            display: flex;
+            gap: 20px;
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF3B30, #FF6B35);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        
+        .step-content p {
+            margin-bottom: 0;
+            color: #666;
+        }
+        
+        /* Screenshot Placeholders */
+        .screenshot {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            border: 3px dashed #adb5bd;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .screenshot-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .screenshot-desc {
+            color: #6c757d;
+            font-style: italic;
+            font-size: 1em;
+        }
+        
+        /* Tool Cards */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .tool-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            border-color: #FF6B35;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.2);
+        }
+        
+        .tool-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #FF3B30;
+            margin-bottom: 10px;
+        }
+        
+        .tool-cost {
+            display: inline-block;
+            background: #FFA500;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .tool-desc {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        /* Cost Breakdown */
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1.1em;
+        }
+        
+        .cost-table th {
+            background: linear-gradient(135deg, #FF3B30, #FF6B35);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .cost-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .cost-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .total-row {
+            background: #FFF5F5 !important;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .total-row td {
+            color: #FF3B30;
+            border-top: 3px solid #FF3B30;
+        }
+        
+        /* Action Items */
+        .action-box {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+        }
+        
+        .action-box h2 {
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .action-box h2 .icon {
+            font-size: 1.5em;
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .action-item input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            accent-color: #FFA500;
+        }
+        
+        /* Quote */
+        .quote-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            font-size: 4em;
+            color: #FF6B35;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.5;
+        }
+        
+        .quote-text {
+            font-size: 1.3em;
+            font-style: italic;
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+        
+        .quote-author {
+            color: #FFA500;
+            font-weight: bold;
+            padding-left: 30px;
+        }
+        
+        /* Progress Bar */
+        .progress-section {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 33%;
+            background: linear-gradient(90deg, #FF3B30, #FF6B35, #FFA500);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        /* Navigation */
+        .nav-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn-primary {
+            background: linear-gradient(135deg, #FF3B30, #FF6B35);
+            color: white;
+        }
+        
+        .nav-btn-primary:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(255, 59, 48, 0.4);
+        }
+        
+        .nav-btn-secondary {
+            background: #e9ecef;
+            color: #666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .content-card {
+                padding: 25px;
+            }
+            
+            .step {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">📚 DVH Nexus Academy</div>
+            <div class="module-badge">Module 1 of 3</div>
+            <h1>The Foundation</h1>
+            <p class="subtitle">Your AI Team Setup</p>
+        </div>
+        
+        <!-- Progress -->
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="progress-text">You're 33% through The 3-Shift Escape Plan</p>
+        </div>
+        
+        <!-- VIDEO SECTION -->
+        <div class="content-card">
+            <h2><span class="icon">🎥</span> Watch This First</h2>
+            <div class="video-container" style="background: #1a1a2e; border-radius: 15px; padding: 20px; text-align: center; margin: 20px 0;">
+                <div style="background: #000; border-radius: 10px; padding: 80px 20px; color: #FFA500; font-size: 1.2em;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">▶️</div>
+                    <p><strong>Module 1 Video</strong></p>
+                    <p style="color: #888; font-size: 0.9em; margin-top: 10px;">Your AI Team Setup (3-4 minutes)</p>
+                    <p style="color: #666; font-size: 0.8em; margin-top: 15px;">[Video will be embedded here after recording]</p>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <h4>🎯 In this video you'll learn:</h4>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>What an AI team is and why you need one</li>
+                    <li>The real Walmart escape story</li>
+                    <li>The 4 tools you need ($58/month total)</li>
+                    <li>Your first win: getting AI to do 1 task</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Section 1: What Is An AI Team -->
+        <div class="content-card">
+            <h2><span class="icon">🤖</span> What Is An AI Team?</h2>
+            
+            <p>Imagine having 5 employees who never sleep, never complain, and work for less than a daily coffee.</p>
+            
+            <p>That's your AI team.</p>
+            
+            <div class="highlight-box">
+                <h4>🎯 Here's what this means for you:</h4>
+                <p>An AI team is a group of specialized AI tools working together to handle tasks that used to require human employees.</p>
+            </div>
+            
+            <h3>Your AI Team Members:</h3>
+            <ul>
+                <li><strong>The Writer</strong> — Creates emails, posts, scripts, and content</li>
+                <li><strong>The Designer</strong> — Makes images, graphics, and visuals</li>
+                <li><strong>The Assistant</strong> — Answers questions and organizes your day</li>
+                <li><strong>The Analyst</strong> — Crunches numbers and spots patterns</li>
+                <li><strong>The Builder</strong> — Writes code and builds automations</li>
+            </ul>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">👥</div>
+                <p class="screenshot-desc">Screenshot: Visual diagram showing 5 AI team members (Writer, Designer, Assistant, Analyst, Builder) connected to a central hub labeled "You - The CEO"</p>
+            </div>
+            
+            <p>Think of it like this: You just became the CEO of a tech company. These AI tools are your workforce. You give directions. They do the work.</p>
+        </div>
+        
+        <!-- Section 2: The Walmart Escape Story -->
+        <div class="content-card">
+            <h2><span class="icon">🏃</span> Why You Need One (The Walmart Escape Story)</h2>
+            
+            <p>Let me tell you about Mike.</p>
+            
+            <p>Mike worked at Walmart for 8 years. He stocked shelves from 11 PM to 7 AM. His knees hurt. His back hurt. He never saw his kids on weekends.</p>
+            
+            <p>He made $2,400 a month.</p>
+            
+            <p>One day, Mike's car broke down. He didn't have $500 for repairs. He cried in the parking lot.</p>
+            
+            <div class="highlight-box">
+                <h4>💡 The Breaking Point</h4>
+                <p>Mike realized trading time for money was a trap. He had skills. He was smart. But he was stuck.</p>
+            </div>
+            
+            <h3>Then Mike Built His AI Team</h3>
+            
+            <p>Here's what happened in 90 days:</p>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Week 1-2: Setup</h4>
+                    <p>Mike spent $40 and 3 hours setting up his AI tools. He felt overwhelmed at first. But he kept going.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Week 3-4: First Win</h4>
+                    <p>He used AI to write product descriptions for a friend's Etsy shop. Made $200 in one weekend. More than his 2-day Walmart paycheck.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Week 5-8: Momentum</h4>
+                    <p>He landed 3 more clients. AI did 80% of the work. Mike just reviewed and sent. His side income hit $1,200/month.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Week 9-12: The Escape</h4>
+                    <p>Mike's AI-powered business made $3,400 in one month. He quit Walmart. He works from home now. He sees his kids every day.</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">📊</div>
+                <p class="screenshot-desc">Screenshot: Before/After comparison showing Walmart schedule vs. AI business schedule, income graph from $2,400 to $3,400+</p>
+            </div>
+            
+            <div class="quote-box">
+                <p class="quote-text">I didn't need to be a tech genius. I just needed to be the boss of my AI team. They do the work. I point the direction.</p>
+                <p class="quote-author">— Mike, Former Walmart Employee, Now AI Business Owner</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>🎯 Here's what this means for you:</h4>
+                <p>If Mike can do it while working night shifts at Walmart, you can do it too. The only difference between trapped and free is 3 shifts of setup.</p>
+            </div>
+        </div>
+        
+        <!-- Section 3: Tools You Need -->
+        <div class="content-card">
+            <h2><span class="icon">🛠️</span> Tools You Need</h2>
+            
+            <p>You don't need fancy software. You don't need to code. You need 4 tools.</p>
+            
+            <p>That's it.</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-name">🧠 Kimi</div>
+                    <span class="tool-cost">FREE</span>
+                    <p class="tool-desc">Your main assistant. Writes content, answers questions, helps you think through problems. Start here.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-name">⚡ OpenClaw</div>
+                    <span class="tool-cost">$20/month</span>
+                    <p class="tool-desc">Your automation engine. Connects apps, runs tasks while you sleep. The invisible worker.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-name">🎨 Canva</div>
+                    <span class="tool-cost">FREE / $13/month</span>
+                    <p class="tool-desc">Your designer. Makes social posts, logos, presentations. Drag and drop. No skills needed.</p>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-name">📹 HeyGen</div>
+                    <span class="tool-cost">$24/month</span>
+                    <p class="tool-desc">Your video spokesperson. Creates AI videos with your avatar. Works 24/7 creating content.</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">🖥️</div>
+                <p class="screenshot-desc">Screenshot: Desktop view showing all 4 tools open in browser tabs, with a simple workflow diagram connecting them</p>
+            </div>
+            
+            <h3>What Each Tool Does For You:</h3>
+            
+            <ul>
+                <li><strong>Kimi</strong> → Brainstorms ideas, writes your first drafts, explains confusing stuff in simple terms</li>
+                <li><strong>OpenClaw</strong> → Posts your content automatically, sends emails, handles repetitive tasks</li>
+                <li><strong>Canva</strong> → Makes you look professional even if you can't draw a stick figure</li>
+                <li><strong>HeyGen</strong> → Creates videos without you being on camera or memorizing scripts</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h4>💰 Pro Tip: Start Free</h4>
+                <p>Use free versions first. Upgrade only when you're making money. Kimi and Canva have generous free plans. OpenClaw has a free tier. Only pay when you see results.</p>
+            </div>
+        </div>
+        
+        <!-- Section 4: Setting Up Your First AI Assistant -->
+        <div class="content-card">
+            <h2><span class="icon">⚙️</span> Setting Up Your First AI Assistant</h2>
+            
+            <p>Let's get your first team member working today.</p>
+            
+            <p>We're starting with Kimi. It's free. It's powerful. It takes 5 minutes.</p>
+            
+            <h3>Step-by-Step Setup:</h3>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Go to Kimi.com</h4>
+                    <p>Open your browser. Type kimi.com. Click "Sign Up Free" button in the top right corner.</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">🌐</div>
+                <p class="screenshot-desc">Screenshot: Kimi homepage with "Sign Up Free" button highlighted with a red circle and arrow</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Create Your Account</h4>
+                    <p>Use your email or Google account. Pick a password you remember. Click the verification link in your email.</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">✉️</div>
+                <p class="screenshot-desc">Screenshot: Email inbox showing Kimi verification email with "Verify Email" button highlighted</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Start Your First Chat</h4>
+                    <p>You'll see a text box at the bottom. Type: "Help me write a social media post about starting a side business." Hit Enter.</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">💬</div>
+                <p class="screenshot-desc">Screenshot: Kimi chat interface showing the prompt entered and the AI generating a response with a "Copy" button visible</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Test It Out</h4>
+                    <p>Read what Kimi wrote. Ask it to change anything. Try: "Make it shorter" or "Make it more exciting." Watch it adapt.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Bookmark the Page</h4>
+                    <p>Press Ctrl+D (or Cmd+D on Mac). Save it to your bookmarks bar. This is now your new best friend.</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>✅ You Just Hired Your First Employee</h4>
+                <p>Seriously. That's it. You now have a writer, researcher, and assistant available 24/7. For free.</p>
+            </div>
+        </div>
+        
+        <!-- Section 5: Cost Breakdown -->
+        <div class="content-card">
+            <h2><span class="icon">💵</span> The $40/Month Operating Cost</h2>
+            
+            <p>Let's talk money. Real numbers. No surprises.</p>
+            
+            <p>You can start for $0. But when you're ready to scale, here's what a professional AI team costs:</p>
+            
+            <table class="cost-table">
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Monthly Cost</th>
+                        <th>What It Replaces</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🧠 Kimi</td>
+                        <td>$0 (Free)</td>
+                        <td>Copywriter ($500+)</td>
+                    </tr>
+                    <tr>
+                        <td>⚡ OpenClaw</td>
+                        <td>$20</td>
+                        <td>Virtual Assistant ($800+)</td>
+                    </tr>
+                    <tr>
+                        <td>🎨 Canva Pro</td>
+                        <td>$13</td>
+                        <td>Graphic Designer ($500+)</td>
+                    </tr>
+                    <tr>
+                        <td>📹 HeyGen</td>
+                        <td>$24</td>
+                        <td>Video Editor ($1,000+)</td>
+                    </tr>
+                    <tr>
+                        <td>🌐 Domain</td>
+                        <td>$12/year ($1/mo)</td>
+                        <td>—</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>💰 TOTAL</td>
+                        <td>$58/month</td>
+                        <td>$2,800+ in human salaries</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">📈</div>
+                <p class="screenshot-desc">Screenshot: Visual comparison showing "Traditional Team: $2,800/month" vs "AI Team: $58/month" with a savings badge showing "98% savings"</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>🎯 Here's what this means for you:</h4>
+                <p>For the price of one fancy dinner, you get a full team working 24/7. One client paying you $100/month covers your entire operation.</p>
+            </div>
+            
+            <h3>The "Bare Minimum" Starter Budget:</h3>
+            <ul>
+                <li><strong>Month 1:</strong> $0 — Use all free versions</li>
+                <li><strong>Month 2:</strong> $20 — Add OpenClaw when you have your first client</li>
+                <li><strong>Month 3:</strong> $40 — Add Canva Pro and HeyGen as you scale</li>
+            </ul>
+            
+            <p>Start small. Grow as you earn. Never pay for tools before they make you money.</p>
+        </div>
+        
+        <!-- Section 6: Your First Win -->
+        <div class="content-card">
+            <h2><span class="icon">🏆</span> Your First Win: Getting AI To Do 1 Task</h2>
+            
+            <p>Theory is nice. But you need a win. Today.</p>
+            
+            <p>Here's your mission: Get AI to complete one real task in the next 30 minutes.</p>
+            
+            <h3>Pick ONE of These:</h3>
+            
+            <div class="step">
+                <div class="step-number">A</div>
+                <div class="step-content">
+                    <h4>Write a Business Bio</h4>
+                    <p>Ask Kimi: "Write a 3-sentence bio for [your name] who helps [your target audience] achieve [result]. Make it friendly and professional."</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">B</div>
+                <div class="step-content">
+                    <h4>Create 5 Social Posts</h4>
+                    <p>Ask Kimi: "Write 5 Twitter posts about [your topic]. Make them engaging. Include hashtags."</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">C</div>
+                <div class="step-content">
+                    <h4>Draft an Email</h4>
+                    <p>Ask Kimi: "Write an email to a potential client introducing my [service]. Keep it short and casual."</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <div class="screenshot-icon">✅</div>
+                <p class="screenshot-desc">Screenshot: Split screen showing the prompt on left and the completed AI output on right with a green "Done!" checkmark overlay</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>⚡ Why This Matters</h4>
+                <p>Once you see AI create something useful in 10 seconds, everything changes. You realize you don't need to be "creative" or "good at writing." You just need to ask.</p>
+            </div>
+            
+            <h3>Your Win Checklist:</h3>
+            <ul>
+                <li>☐ Opened Kimi</li>
+                <li>☐ Asked for one thing</li>
+                <li>☐ Got a result</li>
+                <li>☐ Saved or copied the result</li>
+                <li>☐ Posted it somewhere OR sent it to someone</li>
+            </ul>
+            
+            <div class="quote-box">
+                <p class="quote-text">The magic isn't in the AI. It's in YOU taking action. One small win leads to the next.</p>
+                <p class="quote-author">— The DVH Nexus Team</p>
+            </div>
+        </div>
+        
+        <!-- Action Items -->
+        <div class="action-box">
+            <h2><span class="icon">✅</span> Module 1 Action Items</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1em;">Complete these before moving to Module 2. Check each box as you finish:</p>
+            
+            <div class="action-item">
+                <input type="checkbox" id="action1">
+                <label for="action1">Created free Kimi account at kimi.com</label>
+            </div>
+            
+            <div class="action-item">
+                <input type="checkbox" id="action2">
+                <label for="action2">Completed first AI task (bio, posts, or email)</label>
+            </div>
+            
+            <div class="action-item">
+                <input type="checkbox" id="action3">
+                <label for="action3">Bookmarked Kimi for easy access</label>
+            </div>
+            
+            <div class="action-item">
+                <input type="checkbox" id="action4">
+                <label for="action4">Created Canva account (free)</label>
+            </div>
+            
+            <div class="action-item">
+                <input type="checkbox" id="action5">
+                <label for="action5">Signed up for OpenClaw free tier</label>
+            </div>
+            
+            <div class="action-item">
+                <input type="checkbox" id="action6">
+                <label for="action6">Calculated my monthly AI budget ($0, $20, or $40)</label>
+            </div>
+        </div>
+        
+        <!-- What's Next -->
+        <div class="content-card">
+            <h2><span class="icon">🚀</span> What's Next?</h2>
+            
+            <p>You now have your AI team foundation. You understand the tools. You've got your first win.</p>
+            
+            <p>In <strong>Module 2</strong>, you'll learn how to put your AI team to work. We'll build your first automated system that brings in leads while you sleep.</p>
+            
+            <div class="highlight-box">
+                <h4>🎯 Coming Up in Module 2:</h4>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Building your first automated workflow</li>
+                    <li>Creating a lead capture system</li>
+                    <li>Setting up auto-responses</li>
+                    <li>Your first $100 client strategy</li>
+                </ul>
+            </div>
+            
+            <p>Ready? Complete your action items above. Then click Next to continue.</p>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-footer">
+            <a href="#" class="nav-btn nav-btn-secondary">← Back to Course Home</a>
+            <a href="#" class="nav-btn nav-btn-primary">Next: Module 2 →</a>
+        </div>
+        
+        <!-- Footer -->
+        <div style="text-align: center; padding: 30px; color: rgba(255,255,255,0.6);">
+            <p>© 2025 DVH Nexus Academy | The 3-Shift Escape Plan</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Questions? Email support@dvnexus.com</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: Scale & Escape - Your 90-Day Roadmap | DVH Nexus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .module-header {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 50%, #FFA500 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(255, 59, 48, 0.3);
+        }
+        
+        .module-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .module-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .module-subtitle {
+            font-size: 24px;
+            color: rgba(255,255,255,0.95);
+            font-weight: 400;
+        }
+        
+        .content-section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FF3B30;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-icon {
+            font-size: 36px;
+        }
+        
+        .section-intro {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff9f0 100%);
+            border-left: 5px solid #FF6B35;
+            border-radius: 10px;
+        }
+        
+        .what-this-means {
+            background: linear-gradient(135deg, #FF6B35 0%, #FFA500 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .what-this-means strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 4px solid #FF3B30;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .step-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            font-size: 17px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .screenshot-placeholder {
+            background: linear-gradient(135deg, #e8e8e8 0%, #f0f0f0 100%);
+            border: 3px dashed #FF6B35;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .screenshot-placeholder .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .screenshot-placeholder h4 {
+            font-size: 20px;
+            color: #FF6B35;
+            margin-bottom: 10px;
+        }
+        
+        .screenshot-placeholder p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .visual-metaphor {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .visual-metaphor .emoji {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .visual-metaphor h4 {
+            font-size: 24px;
+            color: #FFA500;
+            margin-bottom: 15px;
+        }
+        
+        .visual-metaphor p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .month-box {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff5f5 100%);
+            border: 3px solid #FF6B35;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+        
+        .month-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .month-badge {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .month-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 15px 0 15px 45px;
+            position: relative;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+            color: #FF6B35;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .highlight-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-box p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+        
+        .tracker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .tracker-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 5px solid #FF6B35;
+        }
+        
+        .tracker-card .number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #FF3B30;
+            display: block;
+        }
+        
+        .tracker-card .label {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .team-member {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            border-color: #FF6B35;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .team-member .avatar {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .team-member h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .team-member p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .action-section {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B35 50%, #FFA500 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 60px rgba(255, 59, 48, 0.3);
+        }
+        
+        .action-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .action-section .countdown {
+            font-size: 72px;
+            font-weight: 800;
+            margin: 30px 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+        
+        .action-list {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 30px auto;
+            text-align: left;
+        }
+        
+        .action-list li {
+            padding: 20px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #FF3B30;
+            padding: 20px 60px;
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 30px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #FF3B30 0%, #FF6B35 50%, #FFA500 100%);
+            height: 100%;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .tip-box strong {
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .module-title {
+                font-size: 32px;
+            }
+            
+            .module-subtitle {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .action-section .countdown {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Module Header -->
+        <header class="module-header">
+            <div class="module-number">Module 5</div>
+            <h1 class="module-title">Scale & Escape</h1>
+            <p class="module-subtitle">Your 90-Day Roadmap to Freedom</p>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎯</span>
+                The Finish Line Is In Sight
+            </h2>
+            
+            <div class="section-intro">
+                You made it. This is Module 5. The last one. Everything we've built together comes down to this 90-day plan. Follow it. Escape your 9-to-5. Build your new life.
+            </div>
+
+            <div class="visual-metaphor">
+                <span class="emoji">🏃‍♂️➡️🏖️</span>
+                <h4>Think of This Like Training for a Marathon</h4>
+                <p>You don't run 26 miles on day one. You train. You build. You get stronger. This 90-day plan is your training schedule. Each week builds on the last. By day 90, you'll be running full speed toward freedom.</p>
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                You now have a complete, step-by-step map. No more guessing. No more "what do I do next?" Just follow the days. Check the boxes. Watch your business grow.
+            </div>
+        </section>
+
+        <!-- The 90-Day Overview -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">📅</span>
+                The 90-Day Escape Plan Overview
+            </h2>
+
+            <div class="section-intro">
+                Three months. Three phases. Each one has ONE main goal. Don't try to do everything at once. Focus on the phase you're in.
+            </div>
+
+            <div class="tracker-grid">
+                <div class="tracker-card">
+                    <span class="number">30</span>
+                    <div class="label">Days to Build</div>
+                </div>
+                <div class="tracker-card">
+                    <span class="number">30</span>
+                    <div class="label">Days to Launch</div>
+                </div>
+                <div class="tracker-card">
+                    <span class="number">30</span>
+                    <div class="label">Days to Scale</div>
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                <div class="icon">🗓️</div>
+                <h4>Screenshot: 90-Day Calendar View</h4>
+                <p>Show a visual calendar with the 3 phases color-coded: Build (blue), Launch (orange), Scale (green). Each week has 2-3 key milestones marked.</p>
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                Month 1 = Get ready. Month 2 = Get going. Month 3 = Get growing. Simple as that.
+            </div>
+        </section>
+
+        <!-- Month 1: BUILD -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔨</span>
+                Month 1: BUILD
+            </h2>
+
+            <div class="month-box">
+                <div class="month-header">
+                    <span class="month-badge">DAYS 1-30</span>
+                    <h3 class="month-title">Build Your Foundation</h3>
+                </div>
+
+                <div class="section-intro">
+                    Before you can sell anything, you need tools. You need content. You need something to offer. Month 1 is about building these pieces. No selling yet. Just building.
+                </div>
+
+                <ul class="step-list">
+                    <li class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Set Up Your AI Tools</h4>
+                            <p>Get your AI team ready. Set up OpenClaw for automation. Configure your HeyGen avatar. Connect your PostStream for social media. These are your workers. Get them hired and trained in week 1.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Create Your Core Content</h4>
+                            <p>Make 10 pieces of content. Videos, posts, emails—whatever fits your style. These prove you know your stuff. They build trust. They attract people to you. Batch create them in week 2.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Build Your First Offer</h4>
+                            <p>What will you sell? A course? Coaching? A done-for-you service? Pick ONE thing. Price it at $97, $297, or $997. Create a simple sales page. Week 3 is offer time.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Set Up Your Systems</h4>
+                            <p>Connect your payment processor. Set up your email list. Build your delivery system (how customers get what they bought). Test everything. Make sure it works. Week 4 is system week.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="screenshot-placeholder">
+                    <div class="icon">🛠️</div>
+                    <h4>Screenshot: Build Phase Dashboard</h4>
+                    <p>Show a simple checklist view with 4 weekly sections. Each week has 3-5 tasks with checkboxes. Progress bar at top shows 0% → 25% → 50% → 75% → 100%.</p>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Pro Tip:</strong>
+                    Don't make your offer complicated. The best offers solve ONE problem for ONE person. "I help busy moms lose 10 pounds in 30 days" beats "I help everyone with everything" every time.
+                </div>
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                By day 30, you'll have working tools, published content, a real offer, and systems that run. You'll be ready to sell. Most people never get this far. You will.
+            </div>
+        </section>
+
+        <!-- Month 2: LAUNCH -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">🚀</span>
+                Month 2: LAUNCH
+            </h2>
+
+            <div class="month-box">
+                <div class="month-header">
+                    <span class="month-badge">DAYS 31-60</span>
+                    <h3 class="month-title">Get Traffic, Get Leads, Get Sales</h3>
+                </div>
+
+                <div class="section-intro">
+                    You built it. Now sell it. Month 2 is about getting eyeballs on your offer and turning those eyeballs into dollars. This is where the fun starts.
+                </div>
+
+                <ul class="step-list">
+                    <li class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Start Posting Every Day</h4>
+                            <p>Use your AI tools to post content daily. One video. One email. Three social posts. Minimum. This keeps you visible. This builds your audience. Week 5 is go-time.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Run Your First Ads (Optional)</h4>
+                            <p>If you have $5-10/day, run simple Facebook or TikTok ads. Point them to a free guide or video. Collect emails. This speeds everything up. Week 6 if you want to accelerate.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Start Conversations</h4>
+                            <p>Reply to every comment. Answer every DM. Jump in conversations where your target audience hangs out. Be helpful. Be real. Don't pitch—just connect. Week 7 is conversation week.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Make Your First Sale</h4>
+                            <p>By day 60, you should have at least ONE paying customer. Celebrate it. Screenshot it. This proves your business works. One sale becomes ten. Ten becomes one hundred. Week 8 is sales week.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="screenshot-placeholder">
+                    <div class="icon">📈</div>
+                    <h4>Screenshot: Launch Phase Dashboard</h4>
+                    <p>Show metrics view with: Content Posted (count), Leads Generated (count), Conversations Started (count), Sales Made (count with $ amount). Green arrows pointing up.</p>
+                </div>
+
+                <div class="visual-metaphor">
+                    <span class="emoji">🎣</span>
+                    <h4>Think of It Like Fishing</h4>
+                    <p>Posting content is like casting your line. The more you cast, the more fish see your bait. Some will bite. Some won't. That's fine. Keep casting. Eventually, you'll reel one in.</p>
+                </div>
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                By day 60, you'll have real traffic, real leads, and hopefully real sales. You'll know your business works. You'll have proof. You'll have momentum.
+            </div>
+        </section>
+
+        <!-- Month 3: SCALE -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Month 3: SCALE
+            </h2>
+
+            <div class="month-box">
+                <div class="month-header">
+                    <span class="month-badge">DAYS 61-90</span>
+                    <h3 class="month-title">Systems, Automation & Growth</h3>
+                </div>
+
+                <div class="section-intro">
+                    You proved it works. Now make it work WITHOUT you. Month 3 is about automation, systems, and scaling what already works. This is how you buy back your time.
+                </div>
+
+                <ul class="step-list">
+                    <li class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Automate Your Content</h4>
+                            <p>Use your AI tools to batch-create a month of content in one day. Schedule it all. Set it and forget it. Your content machine runs while you sleep. Week 9 is automation week.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Build Email Sequences</h4>
+                            <p>Write 5-10 emails that sell for you. Set them to send automatically when someone joins your list. These emails work 24/7. They nurture. They sell. They never sleep. Week 10 is sequence week.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Double Down on What Works</h4>
+                            <p>Look at your numbers. What content got the most views? What offer sold best? Do MORE of that. Stop doing what didn't work. Focus your energy. Week 11 is optimization week.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Add an Upsell or Second Offer</h4>
+                            <p>Now that you have buyers, give them something else to buy. A higher-priced option. A done-with-you service. A bundle. More offers = more revenue per customer. Week 12 is expansion week.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="screenshot-placeholder">
+                    <div class="icon">⚙️</div>
+                    <h4>Screenshot: Scale Phase Dashboard</h4>
+                    <p>Show automation view: Scheduled Posts (calendar), Email Sequences (flow chart), Revenue Chart (upward trending), Time Saved This Week (hours counter).</p>
+                </div>
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                By day 90, your business runs mostly on autopilot. You created the machine. Now the machine works for you. You're free to live your life while income keeps coming in.
+            </div>
+        </section>
+
+        <!-- The Walmart Exit Tracker -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎯</span>
+                The "Walmart Exit" Milestone Tracker
+            </h2>
+
+            <div class="section-intro">
+                This is your scoreboard. These are the numbers that matter. Track them weekly. Watch them grow. When you hit these milestones, you're ready to walk away from your job.
+            </div>
+
+            <div class="highlight-box">
+                <h3>🎯 The Magic Number</h3>
+                <p>When your business makes 1.5x your current monthly salary consistently for 3 months, you can quit. That's your "Walmart Exit" number.</p>
+            </div>
+
+            <div class="tracker-grid">
+                <div class="tracker-card">
+                    <span class="number">$1K</span>
+                    <div class="label">First Milestone<br>"It Works!"</div>
+                </div>
+                <div class="tracker-card">
+                    <span class="number">$3K</span>
+                    <div class="label">Second Milestone<br>"Real Money"</div>
+                </div>
+                <div class="tracker-card">
+                    <span class="number">$5K</span>
+                    <div class="label">Third Milestone<br>"Side Hustle King"</div>
+                </div>
+                <div class="tracker-card">
+                    <span class="number">$10K</span>
+                    <div class="label">Fourth Milestone<br>"Job Replacement"</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%">$0 → $1K</div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                <div class="icon">📊</div>
+                <h4>Screenshot: Milestone Tracker Dashboard</h4>
+                <p>Show a visual progress bar with checkpoints at $1K, $3K, $5K, and $10K. Each checkpoint shows: Monthly Revenue Target, Current Status, Weeks to Goal (estimate), Celebration Badge.</p>
+            </div>
+
+            <div class="visual-metaphor">
+                <span class="emoji">🎮</span>
+                <h4>Think of It Like a Video Game</h4>
+                <p>Each milestone is a level. $1K is Level 1. $3K is Level 2. You unlock new abilities at each level. New confidence. New options. Keep playing. Keep leveling up. The final boss is freedom.</p>
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                You don't need to hit $10K tomorrow. You just need to hit $1K first. Then $3K. Then $5K. Small wins build big wins. Track your numbers. Celebrate every milestone.
+            </div>
+        </section>
+
+        <!-- Building Your AI Team -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">🤖</span>
+                Building Your Team of AI Assistants
+            </h2>
+
+            <div class="section-intro">
+                You don't need employees. You need AI assistants. They work 24/7. They never call in sick. They cost a fraction of a human team. Here's your dream team.
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">📝</div>
+                    <h4>Content AI</h4>
+                    <p>Writes your posts, emails, and scripts. Never runs out of ideas.</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">🎥</div>
+                    <h4>Video AI</h4>
+                    <p>Creates your avatar videos. Edits your clips. Posts to all platforms.</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">📱</div>
+                    <h4>Social AI</h4>
+                    <p>Schedules posts. Replies to comments. Grows your following.</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">💬</div>
+                    <h4>Chat AI</h4>
+                    <p>Answers questions. Qualifies leads. Books calls while you sleep.</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">📧</div>
+                    <h4>Email AI</h4>
+                    <p>Writes sequences. Sends broadcasts. Nurtures your list.</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">📊</div>
+                    <h4>Analytics AI</h4>
+                    <p>Tracks your numbers. Spots trends. Tells you what's working.</p>
+                </div>
+            </div>
+
+            <div class="screenshot-placeholder">
+                <div class="icon">👥</div>
+                <h4>Screenshot: AI Team Dashboard</h4>
+                <p>Show 6 AI assistant cards in a grid. Each card has: Icon, Name, Status (Active/Working), Tasks Completed Today, Time Saved This Week. Green "Online" indicators.</p>
+            </div>
+
+            <ul class="step-list">
+                <li class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Hire Your First AI</h4>
+                        <p>Start with content. Set up OpenClaw or ChatGPT. Learn how to prompt. Get comfortable with AI doing your writing. This one AI replaces a $3,000/month copywriter.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Add Video to Your Team</h4>
+                        <p>Get HeyGen. Create your avatar. Now you can make 10 videos in the time it used to take to make 1. Your face, your voice, your message—without being on camera.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Automate Social Media</h4>
+                        <p>Connect PostStream or similar. Schedule a month of posts in one sitting. Your content goes out even when you're at the beach. Your audience keeps growing.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Let AI Handle Support</h4>
+                        <p>Set up chatbots for common questions. Use AI to draft email replies. Most customer service is the same 10 questions. Let AI answer them. You handle the special cases.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong>
+                Don't try to set up all 6 AIs at once. Start with 1. Master it. Add another. Build your team over 30 days. By day 90, you'll have a full AI workforce.
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                Your AI team works while you sleep, eat, and live your life. They don't get tired. They don't complain. They just get the job done. This is how you scale without burning out.
+            </div>
+        </section>
+
+        <!-- Your New Life -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">🏖️</span>
+                Your New Life: Time Freedom + Income
+            </h2>
+
+            <div class="section-intro">
+                This is what you're working for. Not just money. Freedom. The ability to do what you want, when you want, with who you want. Let's paint that picture.
+            </div>
+
+            <div class="visual-metaphor">
+                <span class="emoji">⏰💰</span>
+                <h4>Time + Money = True Wealth</h4>
+                <p>A job gives you money but takes your time. This business gives you BOTH. That's the real goal. Not to be rich and busy. To be free and comfortable.</p>
+            </div>
+
+            <ul class="step-list">
+                <li class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Wake Up Without an Alarm</h4>
+                        <p>No more 6 AM blaring. No more rushing. Your mornings belong to you. Coffee on the porch. Gym when you want. Start work when you're ready—not when someone says.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Work From Anywhere</h4>
+                        <p>Your office is wherever you have wifi. Coffee shop today. Beach tomorrow. Your mom's house next week. You're not tied to a desk. You're not tied to a city.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Spend Time With People You Love</h4>
+                        <p>Pick up your kids from school. Have lunch with your spouse. Visit your parents on a Tuesday. Your time is yours to give to the people who matter most.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Say "Yes" to Opportunities</h4>
+                        <p>Friend calls with concert tickets? Go. Last-minute trip deal? Book it. When you control your time, you can say yes to life. You can be spontaneous again.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Build Something That's Yours</h4>
+                        <p>No more making someone else rich. Every dollar your business makes is YOURS. You're building equity. You're building a legacy. You're building freedom.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="screenshot-placeholder">
+                <div class="icon">🌅</div>
+                <h4>Screenshot: Freedom Lifestyle Vision Board</h4>
+                <p>Show a collage-style image: Laptop on beach, happy family time, passport stamps, "Passive Income" notification, flexible schedule calendar, home office setup. Warm, aspirational vibes.</p>
+            </div>
+
+            <div class="what-this-means">
+                <strong>Here's what this means for you:</strong>
+                In 90 days, you could be living a completely different life. Not someday. Not "when you retire." Now. This year. This is real. This is possible. This is waiting for you.
+            </div>
+        </section>
+
+        <!-- Final Challenge -->
+        <section class="action-section">
+            <h2>🚨 The Final Challenge</h2>
+            <p style="font-size: 22px; margin-bottom: 20px;">You have 24 hours. That's it.</p>
+            
+            <div class="countdown">24:00:00</div>
+            
+            <p style="font-size: 20px; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+                Everything you learned means nothing if you don't act. The next 24 hours are critical. Do these 3 things NOW.
+            </p>
+
+            <ul class="action-list">
+                <li>
+                    <span>✅</span>
+                    <span><strong>Pick Your Start Date.</strong> Circle day 1 on your calendar. Commit to it. No "I'll start Monday." Start now.</span>
+                </li>
+                <li>
+                    <span>✅</span>
+                    <span><strong>Post Your First Piece of Content.</strong> Don't wait until it's perfect. Post something today. Start the momentum.</span>
+                </li>
+                <li>
+                    <span>✅</span>
+                    <span><strong>Tell Someone Your Plan.</strong> Accountability is power. Tell a friend, spouse, or post online. Say "I'm starting my 90-day escape plan."</span>
+                </li>
+            </ul>
+
+            <div style="background: rgba(255,255,255,0.15); padding: 30px; border-radius: 15px; margin-top: 30px;">
+                <p style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">⚡ The Window Is Open</p>
+                <p style="font-size: 18px; opacity: 0.95;">
+                    AI has created an opportunity that didn't exist 2 years ago. Normal people are building real businesses in months, not years. This window won't stay open forever. The time to act is NOW.
+                </p>
+            </div>
+
+            <a href="#" class="cta-button">I'm Ready—Let's Do This!</a>
+        </section>
+
+        <!-- Action Items Summary -->
+        <section class="content-section">
+            <h2 class="section-title">
+                <span class="section-icon">✅</span>
+                Your Action Items
+            </h2>
+
+            <div class="section-intro">
+                Don't leave this module without doing something. Here are your action items. Check them off as you complete them.
+            </div>
+
+            <ul class="checklist">
+                <li>Download the 90-Day Roadmap PDF (print it out!)</li>
+                <li>Set your "Walmart Exit" number (1.5x your current salary)</li>
+                <li>Write down your start date for day 1 of the plan</li>
+                <li>List which AI assistants you'll set up first</li>
+                <li>Post your commitment publicly (social media, text a friend)</li>
+                <li>Schedule your first week of content creation</li>
+                <li>Set a calendar reminder for days 30, 60, and 90 to review progress</li>
+                <li>Join the community and share your milestone goals</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Warning:</strong>
+                90% of people who read this won't take action. They'll bookmark it. They'll "come back to it later." They never do. Don't be that person. Be the 10% who does the work and changes their life.
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 40px; color: rgba(255,255,255,0.6);">
+            <p style="font-size: 18px; margin-bottom: 10px;">© 2025 DVH Nexus | The 3-Shift Escape Plan</p>
+            <p style="font-size: 14px;">Module 5 of 5 | Scale & Escape</p>
+            <p style="font-size: 20px; margin-top: 20px;">🚀 Your freedom is 90 days away. Go get it.</p>
+        </footer>
+    </div>
+</body>
+</html>
