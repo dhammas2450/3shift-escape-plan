@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - The 3-Shift Escape Plan | DVH Nexus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF3B30;
+            --primary-dark: #D63029;
+            --secondary: #FF6B35;
+            --accent: #FFA500;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --gray: #F5F5F5;
+            --success: #4CAF50;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            padding: 20px;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--light);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--success);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .secure-badge::before {
+            content: '🔒';
+        }
+
+        /* Main Content */
+        .checkout-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .checkout-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .checkout-header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.1) 0%, rgba(255, 107, 53, 0.05) 100%);
+            border: 2px solid rgba(255, 59, 48, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .order-summary h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 2px solid rgba(255, 59, 48, 0.3);
+        }
+
+        .order-total-label {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .order-total-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        /* PayPal Section */
+        .payment-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .payment-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        #paypal-button-container {
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Guarantee Box */
+        .guarantee-box {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .guarantee-box h3 {
+            color: var(--success);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .guarantee-box p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* What's Included */
+        .includes-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .includes-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .includes-list {
+            list-style: none;
+        }
+
+        .includes-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #aaa;
+        }
+
+        .includes-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .checkout-footer {
+            text-align: center;
+            padding: 30px;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        .checkout-footer img {
+            height: 50px;
+            opacity: 0.5;
+            margin-bottom: 15px;
+        }
+
+        .legal-disclaimer {
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .legal-disclaimer p {
+            color: #666;
+            font-size: 0.7rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .legal-disclaimer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-disclaimer strong {
+            color: #888;
+            font-weight: 600;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            color: #888;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .checkout-container {
+                padding: 30px 15px;
+            }
+
+            .order-summary,
+            .payment-section {
+                padding: 25px 20px;
+            }
+
+            .product-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .order-total-price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.jpg" alt="DVH Nexus Logo">
+                <span class="logo-text">DVH <span>NEXUS</span></span>
+            </div>
+            <div class="secure-badge">Secure Checkout</div>
+        </div>
+    </header>
+
+    <main class="checkout-container">
+        <div class="checkout-header">
+            <h1>Complete Your Order</h1>
+            <p>You're one step away from escaping the 9-to-5</p>
+        </div>
+
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="product-item">
+                <div class="product-info">
+                    <h3>The 3-Shift Escape Plan</h3>
+                    <p>Complete Video Course + Bonuses</p>
+                </div>
+                <div class="product-price">$97.00</div>
+            </div>
+            <div class="order-total">
+                <span class="order-total-label">Total</span>
+                <span class="order-total-price">$97.00</span>
+            </div>
+        </div>
+
+        <div class="includes-section">
+            <h3>Your Order Includes:</h3>
+            <ul class="includes-list">
+                <li>5 Core Training Modules (Video)</li>
+                <li>30-Day Implementation Checklist</li>
+                <li>50 AI Prompt Templates</li>
+                <li>High-Converting Landing Page Template</li>
+                <li>DM Scripts That Convert</li>
+                <li>Lifetime Access + Updates</li>
+            </ul>
+        </div>
+
+        <div class="payment-section">
+            <h2>Pay Securely with PayPal</h2>
+            <div id="paypal-button-container" style="min-height: 150px;">
+                <p id="paypal-loading" class="loading">Loading payment options</p>
+            </div>
+        </div>
+
+        <div class="guarantee-box">
+            <h3>🛡️ 30-Day Money-Back Guarantee</h3>
+            <p>If you're not completely satisfied with The 3-Shift Escape Plan, contact me within 30 days for a full refund. No questions asked. No hoops to jump through. Your success is my only goal.</p>
+        </div>
+    </main>
+
+    <footer class="checkout-footer">
+        <img src="logo.jpg" alt="DVH Nexus">
+        <p>© 2026 DVH Ventures LLC. All rights reserved.</p>
+        <p>Questions? Email: dvhventuresllc@gmail.com</p>
+        
+        <div class="legal-disclaimer">
+            <p><strong>Earnings Disclaimer:</strong> The sales figures stated on this page and discussed in the course are our personal results and the results of our students. Please understand these results are not typical, we're not implying you'll duplicate them (or do anything for that matter). Your results will vary and depend on many factors including but not limited to your background, experience, and work ethic. All business entails risk as well as massive and consistent effort and action. If you're not willing to accept that, please DO NOT PURCHASE THIS COURSE.</p>
+            
+            <p><strong>Affiliate Disclosure:</strong> Some of the links in this course may be affiliate links. This means if you click on the link and purchase the item, we may receive an affiliate commission at no extra cost to you. We only recommend products or services we use personally and believe will add value to our students.</p>
+            
+            <p><strong>Refund Policy:</strong> We offer a 30-day money-back guarantee. If you're not satisfied with the course for any reason, contact us within 30 days of purchase for a full refund. Refunds are processed within 5-10 business days.</p>
+            
+            <p><strong>Not Financial Advice:</strong> The information provided in this course is for educational purposes only and should not be construed as financial, legal, or professional advice. Always consult with qualified professionals before making business decisions.</p>
+            
+            <p><strong>Contact:</strong> DVH Ventures LLC | Rifle, CO 81650 | dvhventuresllc@gmail.com</p>
+        </div>
+    </footer>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AXo9hxQPRai81lQdfm79WSADxpV5J7jm7mHaqop11LMiQvu6Zc6na7Alb0a7LdN1LIvDawOWv36B321P&currency=USD&intent=capture&enable-funding=venmo,paylater,card&components=buttons"></script>
+    
+    <script>
+        // Wait for PayPal SDK to load
+        function initPayPal() {
+            if (typeof paypal === 'undefined') {
+                setTimeout(initPayPal, 500);
+                return;
+            }
+            
+            // Hide loading text immediately
+            document.getElementById('paypal-loading').style.display = 'none';
+            
+            // PayPal Button Configuration
+            paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '97.00',
+                            currency_code: 'USD'
+                        },
+                        description: 'The 3-Shift Escape Plan - Complete Video Course'
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Redirect to success page with order ID
+                    window.location.href = 'success.html?order=' + details.id;
+                });
+            },
+            onError: function(err) {
+                console.error('PayPal Error:', err);
+                alert('There was an error processing your payment. Please try again or contact support.');
+            },
+            onCancel: function(data) {
+                console.log('Payment cancelled by user');
+            },
+            style: {
+                layout: 'vertical',
+                color: 'gold',
+                shape: 'rect',
+                label: 'pay'
+            }
+        }).render('#paypal-button-container');
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', function() {
+            initPayPal();
+            // Show manual payment option after 10 seconds if PayPal doesn't load
+            setTimeout(function() {
+                var paypalContainer = document.getElementById('paypal-button-container');
+                var manualPayment = document.getElementById('manual-payment');
+                if (paypalContainer && paypalContainer.innerHTML.includes('Loading')) {
+                    manualPayment.style.display = 'block';
+                }
+            }, 10000);
+        });
+    </script>
+</body>
+</html>

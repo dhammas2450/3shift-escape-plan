@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - The 3-Shift Escape Plan | DVH Nexus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF3B30;
+            --primary-dark: #D63029;
+            --secondary: #FF6B35;
+            --accent: #FFA500;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --success: #4CAF50;
+            --success-light: #81C784;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            padding: 20px;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--success);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .member-badge {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid var(--success);
+        }
+
+        /* Success Hero */
+        .success-hero {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(26, 26, 26, 1) 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--success) 0%, var(--success-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            box-shadow: 0 10px 40px rgba(76, 175, 80, 0.3);
+        }
+
+        .success-hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .success-hero p {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .order-details {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px 30px;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .order-details p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .order-details strong {
+            color: var(--success);
+        }
+
+        /* Main Content */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Next Steps */
+        .next-steps {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.1) 0%, rgba(255, 107, 53, 0.05) 100%);
+            border: 2px solid rgba(255, 59, 48, 0.3);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 50px;
+        }
+
+        .next-steps h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .steps-list {
+            display: grid;
+            gap: 25px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--light);
+        }
+
+        .step-content p {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Course Access */
+        .course-access {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .course-access h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .course-access > p {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .access-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--light);
+            padding: 25px 60px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .access-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(255, 59, 48, 0.6);
+        }
+
+        .access-note {
+            background: rgba(255, 59, 48, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .access-note strong {
+            color: var(--accent);
+        }
+
+        /* Bonuses */
+        .bonuses-section {
+            margin-bottom: 50px;
+        }
+
+        .bonuses-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .bonus-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .bonus-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .bonus-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .bonus-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .bonus-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Support Section */
+        .support-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .support-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .support-section p {
+            color: #888;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .support-email {
+            display: inline-block;
+            background: rgba(255, 59, 48, 0.1);
+            border: 1px solid rgba(255, 59, 48, 0.3);
+            padding: 15px 30px;
+            border-radius: 10px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .support-email:hover {
+            background: rgba(255, 59, 48, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo img {
+            height: 50px;
+            opacity: 0.5;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .success-hero {
+                padding: 60px 20px 40px;
+            }
+
+            .content-container {
+                padding: 40px 15px;
+            }
+
+            .next-steps,
+            .course-access,
+            .support-section {
+                padding: 30px 20px;
+            }
+
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .access-button {
+                padding: 20px 40px;
+                font-size: 1.1rem;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.jpg" alt="DVH Nexus Logo">
+            </div>
+            <div class="member-badge">MEMBER ACCESS</div>
+        </div>
+    </header>
+
+    <section class="success-hero">
+        <div class="success-icon">✓</div>
+        <h1>Welcome to the Escape Plan!</h1>
+        <p>Your payment was successful. You now have lifetime access to everything.</p>
+        <div class="order-details">
+            <p>Order ID: <strong id="order-id">Loading...</strong></p>
+        </div>
+    </section>
+
+    <main class="content-container">
+        <div class="next-steps">
+            <h2>🚀 Your Next Steps</h2>
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Bookmark This Page</h3>
+                        <p>This is your member hub. Save it now so you can easily return anytime to access your course materials.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Download Your Bonuses</h3>
+                        <p>Scroll down to grab your 30-Day Checklist, AI Prompts, and other bonuses. These are yours to keep forever.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Start Module 1</h3>
+                        <p>Don't wait. The best time to start was yesterday. The second best time is right now. Click the button below.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-access">
+            <h2>🎬 Access Your Course</h2>
+            <p>All 5 modules are ready and waiting for you.</p>
+            <a href="course-content.html" class="access-button">
+                START WATCHING →
+            </a>
+            <div class="access-note">
+                <strong>Important:</strong> Course videos are hosted securely. You'll need to be logged in to access them. If you have any issues, email me directly.
+            </div>
+        </div>
+
+        <div class="bonuses-section">
+            <h2>🎁 Your Bonuses</h2>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <div class="bonus-icon">📋</div>
+                    <h3>30-Day Checklist</h3>
+                    <p>Day-by-day action plan</p>
+                    <a href="downloads/30-day-checklist.pdf" class="download-link" download>Download PDF →</a>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon">📝</div>
+                    <h3>50 AI Prompts</h3>
+                    <p>Copy-paste templates</p>
+                    <a href="downloads/ai-prompts.pdf" class="download-link" download>Download PDF →</a>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon">🎯</div>
+                    <h3>Landing Page Template</h3>
+                    <p>High-converting design</p>
+                    <a href="downloads/landing-page-template.zip" class="download-link" download>Download ZIP →</a>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon">💬</div>
+                    <h3>DM Scripts</h3>
+                    <p>Word-for-word messages</p>
+                    <a href="downloads/dm-scripts.pdf" class="download-link" download>Download PDF →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="support-section">
+            <h2>Need Help?</h2>
+            <p>I'm here to support you every step of the way. If you have any questions, technical issues, or just want to say hello, reach out anytime.</p>
+            <a href="mailto:dvhventuresllc@gmail.com" class="support-email">
+                📧 dvhventuresllc@gmail.com
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="logo.jpg" alt="DVH Nexus Logo">
+        </div>
+        <p class="footer-text">© 2026 DVH Ventures LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Get order ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order');
+        
+        if (orderId) {
+            document.getElementById('order-id').textContent = orderId;
+        } else {
+            document.getElementById('order-id').textContent = 'N/A';
+        }
+    </script>
+</body>
+</html>
